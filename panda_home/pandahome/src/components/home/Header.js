@@ -17,7 +17,7 @@ export function Header() {
             >
                 <div className="container ">
                     <a className="navbar-brand" href="">
-                        <img  src={logo} alt={"logo"} width="100px" style={{borderRadius:"10px"}} />
+                            <img  src={logo} alt={"logo"} width="100px" style={{borderRadius:"10px"}} />
                     </a>
                     <button
                         className="navbar-toggler"
@@ -38,7 +38,7 @@ export function Header() {
                                     <input
                                         type="text"
                                         className="form-control"
-                                        placeholder="Enter your name"
+                                        placeholder="Tìm kiếm sản phẩm"
                                         width="200px"
                                     />
                                     <button className="btn btn-warning" style={{height: "38px", marginTop:"9px", marginLeft:"2%"}}>
@@ -55,26 +55,26 @@ export function Header() {
 
                     <div className="collapse navbar-collapse" id="navbarsFurni">
                         <ul className="custom-navbar-nav navbar-nav ms-auto  mb-2 mb-md-0">
-                            {/*<li className="nav-item active">*/}
-                            {/*    <a className="nav-link" href="index.html">*/}
-                            {/*        Home*/}
-                            {/*    </a>*/}
-                            {/*</li>*/}
+                            <li className="nav-item active">
+                                <a className="nav-link" href="index.html">
+                                    Trang chủ
+                                </a>
+                            </li>
                             <li>
                                 <a className="nav-link" href="shop.html">
-                                    Shop
+                                    Sản phẩm
                                 </a>
                             </li>
                             <li>
                                 <a className="nav-link" href="about.html">
-                                    About us
+                                    Dịch vụ
                                 </a>
                             </li>
-                            <li>
-                                <a className="nav-link" href="services.html">
-                                    Services
-                                </a>
-                            </li>
+                            {/*<li>*/}
+                            {/*    <a className="nav-link" href="services.html">*/}
+                            {/*        Services*/}
+                            {/*    </a>*/}
+                            {/*</li>*/}
                             {/*<li>*/}
                             {/*    <a className="nav-link" href="blog.html">*/}
                             {/*        Blog*/}
@@ -82,7 +82,7 @@ export function Header() {
                             {/*</li>*/}
                             <li>
                                 <a className="nav-link" href="contact.html">
-                                    Contact us
+                                    Liên hệ
                                 </a>
                             </li>
                         </ul>

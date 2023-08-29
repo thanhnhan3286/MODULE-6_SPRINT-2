@@ -10,7 +10,7 @@ export function Footer() {
                         <div className="col-lg-4">
                             <div className="mb-4 footer-logo-wrap">
                                 <a href="#" className="footer-logo">
-                                    <img src={logo} alt="#" width="100px"/>
+                                    <img src={logo} alt="#" width="100px" style={{borderRadius:"10px"}}/>
                                 </a>
                             </div>
                             <p className="mb-4" style={{color: "#ffffffa6"}}>
@@ -158,6 +158,11 @@ export function Footer() {
                                         <li>
                                             <a href="#" style={{color: "#dee2e6"}}>
                                                 Chính sách đổi trả
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" style={{color: "#dee2e6"}}>
+                                                Chính sách thanh toán
                                             </a>
                                         </li>
                                     </ul>
