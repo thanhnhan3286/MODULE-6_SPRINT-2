@@ -1,34 +1,36 @@
 export function Cart() {
     return (
         <>
-            {/* Start Hero Section */}
-            <div className="hero">
-                <div className="container">
-                    <div className="row justify-content-between">
-                        <div className="col-lg-5">
-                            <div className="intro-excerpt">
-                                <h1>Cart</h1>
-                            </div>
-                        </div>
-                        <div className="col-lg-7"></div>
-                    </div>
-                </div>
-            </div>
-            {/* End Hero Section */}
+            {/*/!* Start Hero Section *!/*/}
+            {/*<div className="hero">*/}
+            {/*    <div className="container">*/}
+            {/*        /!*<div className="row justify-content-between">*!/*/}
+
+            {/*        /!*    <div className="intro-excerpt">*!/*/}
+            {/*        /!*        <h2 className="text-black">Giỏ hàng của bạn</h2>*!/*/}
+            {/*        /!*    </div>*!/*/}
+
+            {/*        /!*</div>*!/*/}
+            {/*    </div>*/}
+            {/*</div>*/}
+            {/*/!* End Hero Section *!/*/}
             <div className="untree_co-section before-footer-section">
                 <div className="container">
                     <div className="row mb-5">
                         <form className="col-md-12" method="post">
+                            <div className="intro-excerpt mt-lg-5">
+                                <h2 className="text-black mb-3 ">Giỏ hàng của bạn</h2>
+                                <h2 className="text-black border-bottom1"/>
+                            </div>
                             <div className="site-blocks-table">
                                 <table className="table">
                                     <thead>
                                     <tr>
-                                        <th className="product-thumbnail">Image</th>
-                                        <th className="product-name">Product</th>
-                                        <th className="product-price">Price</th>
-                                        <th className="product-quantity">Quantity</th>
-                                        <th className="product-total">Total</th>
-                                        <th className="product-remove">Remove</th>
+                                        <th className="product-name" colSpan={2}>Thông tin sản phẩm</th>
+                                        <th className="product-price">Đơn giá</th>
+                                        <th className="product-quantity">Số lượng</th>
+                                        <th className="product-total">Thành tiền</th>
+                                        <th className="product-remove"></th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -47,7 +49,7 @@ export function Cart() {
                                         <td>
                                             <div
                                                 className="input-group mb-3 d-flex align-items-center quantity-container"
-                                                style={{ maxWidth: 120, margin: "auto"}}
+                                                style={{maxWidth: 120, margin: "auto"}}
                                             >
                                                 <div className="input-group-prepend">
                                                     <button
@@ -97,7 +99,7 @@ export function Cart() {
                                         <td>
                                             <div
                                                 className="input-group mb-3 d-flex align-items-center quantity-container"
-                                                style={{ maxWidth: 120, margin: "auto" }}
+                                                style={{maxWidth: 120, margin: "auto"}}
                                             >
                                                 <div className="input-group-prepend">
                                                     <button
@@ -139,37 +141,6 @@ export function Cart() {
                     </div>
                     <div className="row">
                         <div className="col-md-6">
-                            <div className="row mb-5">
-                                <div className="col-md-6 mb-3 mb-md-0">
-                                    <button className="btn btn-black btn-sm btn-block">
-                                        Update Cart
-                                    </button>
-                                </div>
-                                <div className="col-md-6">
-                                    <button className="btn btn-outline-black btn-sm btn-block">
-                                        Continue Shopping
-                                    </button>
-                                </div>
-                            </div>
-                            <div className="row">
-                                <div className="col-md-12">
-                                    <label className="text-black h4" htmlFor="coupon">
-                                        Coupon
-                                    </label>
-                                    <p>Enter your coupon code if you have one.</p>
-                                </div>
-                                <div className="col-md-8 mb-3 mb-md-0">
-                                    <input
-                                        type="text"
-                                        className="form-control py-3"
-                                        id="coupon"
-                                        placeholder="Coupon Code"
-                                    />
-                                </div>
-                                <div className="col-md-4">
-                                    <button className="btn btn-black">Apply Coupon</button>
-                                </div>
-                            </div>
                         </div>
                         <div className="col-md-6 pl-5">
                             <div className="row justify-content-end">
@@ -181,29 +152,29 @@ export function Cart() {
                                             </h3>
                                         </div>
                                     </div>
-                                    <div className="row mb-3">
-                                        <div className="col-md-6">
-                                            <span className="text-black">Subtotal</span>
-                                        </div>
-                                        <div className="col-md-6 text-right">
-                                            <strong className="text-black">$230.00</strong>
-                                        </div>
-                                    </div>
+                                    {/*<div className="row mb-3">*/}
+                                    {/*    <div className="col-md-6">*/}
+                                    {/*        <span className="text-black">Subtotal</span>*/}
+                                    {/*    </div>*/}
+                                    {/*    <div className="col-md-6 text-right">*/}
+                                    {/*        <strong className="text-black">$230.00</strong>*/}
+                                    {/*    </div>*/}
+                                    {/*</div>*/}
                                     <div className="row mb-5">
                                         <div className="col-md-6">
-                                            <span className="text-black">Total</span>
+                                            <span className="text-black">Tổng tiền: </span>
                                         </div>
                                         <div className="col-md-6 text-right">
-                                            <strong className="text-black">$230.00</strong>
+                                            <span className="fw-bold" style={{color: "red"}}>2.330.000đ</span>
                                         </div>
                                     </div>
                                     <div className="row">
                                         <div className="col-md-12">
                                             <button
-                                                className="btn btn-black btn-lg py-3 btn-block"
+                                                className="btn btn-secondary fw-bold btn-lg py-3 btn-block w-100"
                                                 onclick="window.location='checkout.html'"
                                             >
-                                                Proceed To Checkout
+                                                Thanh toán
                                             </button>
                                         </div>
                                     </div>

@@ -9,17 +9,21 @@ import {SignUp} from "./components/login/SignUp";
 import {Cart} from "./components/cart/Cart";
 import {Login} from "./components/login/Login";
 import {DetailProduct} from "./components/detail/DetailProduct";
+import {Route,  Routes} from "react-router";
 
 function App() {
     return (
         <>
             <Header/>
-            <DetailProduct/>
-            <Login/>
-            <SignUp/>
-            <Home/>
-            <List/>
-            <Cart/>
+            <Routes>
+                <Route exact  path="/" element={<Home/>}/>
+                <Route exact  path="/home" element={<Home/>}/>
+                <Route path="/list" element={<List/>}/>
+                <Route path="/login" element={<Login/>}/>
+                <Route path="/signup" element={<SignUp/>}/>
+                <Route path="/detail" element={<DetailProduct/>}/>
+                <Route path="/cart" element={<Cart/>}/>
+            </Routes>
             <Footer/>
         </>
     );

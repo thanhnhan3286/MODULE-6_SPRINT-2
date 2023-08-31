@@ -1,4 +1,3 @@
-
 import "../../css/bootstrap.min.css";
 import "../../css/tiny-slider.css";
 import "../../css/style.css";
@@ -6,6 +5,7 @@ import user from "../../images/user.svg";
 import cart from "../../images/cart.svg";
 import logo from "../../images/pandahome3-2.png";
 import React from "react";
+import {Link, NavLink} from "react-router-dom";
 
 export function Header() {
     return (
@@ -16,9 +16,9 @@ export function Header() {
                 arial-label="Furni navigation bar"
             >
                 <div className="container ">
-                    <a className="navbar-brand" href="">
-                            <img  src={logo} alt={"logo"} width="100px" style={{borderRadius:"10px"}} />
-                    </a>
+                    <Link to="home" className="navbar-brand" href="">
+                        <img src={logo} alt={"logo"} width="100px" style={{borderRadius: "10px"}}/>
+                    </Link>
                     <button
                         className="navbar-toggler"
                         type="button"
@@ -41,7 +41,8 @@ export function Header() {
                                         placeholder="Tìm kiếm sản phẩm"
                                         width="200px"
                                     />
-                                    <button className="btn btn-warning" style={{height: "38px", marginTop:"9px", marginLeft:"2%"}}>
+                                    <button className="btn btn-warning"
+                                            style={{height: "38px", marginTop: "9px", marginLeft: "2%"}}>
                                         <span className="fa fa-search"/>
                                     </button>
                                 </div>
@@ -55,47 +56,107 @@ export function Header() {
 
                     <div className="collapse navbar-collapse" id="navbarsFurni">
                         <ul className="custom-navbar-nav navbar-nav ms-auto  mb-2 mb-md-0">
-                            <li className="nav-item active">
-                                <a className="nav-link" href="index.html">
+                            <li className="nav-item">
+                                <NavLink to="/home" className="nav-link">
                                     Trang chủ
-                                </a>
+                                </NavLink>
                             </li>
                             <li>
-                                <a className="nav-link" href="shop.html">
-                                    Sản phẩm
-                                </a>
+                                {/*<a className="nav-link">*/}
+                                    <NavLink to="/list" className="nav-link">
+                                        Sản phẩm ▾
+                                    </NavLink>
+                                {/*</a>*/}
+                                <ul className="dropdown">
+                                    <li>
+                                        <a className="nav-link bg-black" href="#">Nội thất phòng khách</a>
+                                    </li>
+                                    <li>
+                                        <a className="nav-link bg-black" href="#">Nội thất phòng bếp</a>
+                                    </li>
+                                    <li>
+                                        <a className="nav-link bg-black" href="#">Nội thất phòng ngủ</a>
+                                    </li>
+                                    <li>
+                                        <a className="nav-link bg-black" href="#">Nội thất phòng thờ</a>
+                                    </li>
+                                    <li>
+                                        <a className="nav-link bg-black" href="#">Nội thất văn phòng</a>
+                                    </li>
+                                    <li>
+                                        <a className="nav-link bg-black" href="#">Đồ gỗ mỹ nghệ</a>
+                                    </li>
+                                </ul>
                             </li>
+                            {/*<li>*/}
+                            {/*    <a className="nav-link">Locations ▾</a>*/}
+                            {/*    <ul className="dropdown">*/}
+                            {/*        <li>*/}
+                            {/*            <a className="nav-link bg-black">Germany</a>*/}
+                            {/*        </li>*/}
+                            {/*        <li>*/}
+                            {/*            <a className="nav-link bg-black">Australia</a>*/}
+                            {/*        </li>*/}
+                            {/*        <li>*/}
+                            {/*            <a className="nav-link bg-black">Switzerland</a>*/}
+                            {/*        </li>*/}
+                            {/*        <li>*/}
+                            {/*            <a className="nav-link bg-black">Japan</a>*/}
+                            {/*        </li>*/}
+                            {/*    </ul>*/}
+                            {/*</li>*/}
                             <li>
-                                <a className="nav-link" href="about.html">
-                                    Dịch vụ
-                                </a>
+                                <NavLink to="/service" className="nav-link" href="#">
+                                    Dịch vụ ▾
+                                </NavLink>
+                                <ul className="dropdown">
+                                    <li>
+                                        <a className="nav-link bg-black" href="#">Thi công</a>
+                                    </li>
+                                    <li>
+                                        <a className="nav-link bg-black" href="#">Vận chuyển</a>
+                                    </li>
+                                    <li>
+                                        <a className="nav-link bg-black" href="#">Bảo hành</a>
+                                    </li>
+                                    <li>
+                                        <a className="nav-link bg-black" href="#">Sửa chữa</a>
+                                    </li>
+                                    <li>
+                                        <a className="nav-link bg-black" href="#">Thanh toán</a>
+                                    </li>
+
+                                </ul>
                             </li>
-                            {/*<li>*/}
-                            {/*    <a className="nav-link" href="services.html">*/}
-                            {/*        Services*/}
-                            {/*    </a>*/}
-                            {/*</li>*/}
-                            {/*<li>*/}
-                            {/*    <a className="nav-link" href="blog.html">*/}
-                            {/*        Blog*/}
-                            {/*    </a>*/}
-                            {/*</li>*/}
                             <li>
                                 <a className="nav-link" href="contact.html">
                                     Liên hệ
                                 </a>
                             </li>
                         </ul>
-                        <ul className="custom-navbar-cta navbar-nav mb-2 mb-md-0">
+                        {/*<ul className="custom-navbar-cta navbar-nav mb-2 mb-md-0">*/}
+                        <ul className="custom-navbar-nav navbar-nav mb-2 mb-md-0">
                             <li>
-                                <a className="nav-link" href="#">
-                                    <img src={user} alt="#"/>
-                                </a>
+                                {/*<p className="fw-bold mt-lg-3 text-white">*/}
+                                {/*    ADMIN*/}
+                                {/*</p>*/}
+                                <NavLink to={"login"} className="nav-link">
+                                    <img src={user}/>
+                                </NavLink>
+                                <ul className="dropdown">
+                                    <li>
+                                        <a className="nav-link bg-black" href="#">Thông tin cá nhân</a>
+                                    </li>
+                                    <li>
+                                        <a className="nav-link bg-black" href="#">Đăng Xuất</a>
+                                    </li>
+                                </ul>
+
                             </li>
                             <li>
-                                <a className="nav-link" href="cart.html">
+                                <NavLink className="nav-link" to={"/cart"}>
                                     <img src={cart} alt="#"/>
-                                </a>
+                                </NavLink>
                             </li>
                         </ul>
                     </div>

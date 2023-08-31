@@ -1,12 +1,12 @@
 import why from "../../images/why-choose-us-img.jpg"
-import truck from "../../images/truck.svg"
+import thicong from "../../images/thi-cong-noi-that-theo-mau.png"
 
 export function DetailProduct() {
     return (
         <>
 
             {/* Start Why Choose Us Section */}
-            <div className="why-choose-section" style={{marginTop: "2%"}}>
+            <div className="why-choose-section" style={{marginTop: "6%"}}>
                 <div className="container">
                     <div className="row justify-content-between">
                         <div className="col-lg-5">
@@ -18,7 +18,7 @@ export function DetailProduct() {
                                 />
                             </div>
                         </div>
-                        <div className="col-lg-6">
+                        <div className="col-lg-7" style={{paddingLeft: "5%"}}>
                             <h2 className="section-title">TÊN SẢN PHẨM TÊN SẢN PHẨM TÊN SẢN PHẨM</h2>
                             <div>
                                 <ul className="list-unstyled custom-list">
@@ -27,14 +27,13 @@ export function DetailProduct() {
                                 </ul>
                             </div>
                             <div>
-                                <p>
-                                    Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet
-                                    velit. Aliquam vulputate velit imperdiet dolor tempor tristique.
+                                <p style={{fontWeight: "bold", color: "orange", fontSize: "30px"}}>
+                                    9.000.000đ
                                 </p>
                             </div>
                             <div
                                 className="input-group mb-3 d-flex quantity-container"
-                                style={{ maxWidth: 120 }}
+                                style={{maxWidth: 120}}
                             >
                                 <div className="input-group-prepend">
                                     <button
@@ -62,7 +61,12 @@ export function DetailProduct() {
                                 </div>
                             </div>
                             <p>
-                                <button className="btn btn-warning btn-primary" style={{fontWeight: "bold", width: "auto", backgroundColor: "rgb(69 72 75)", borderColor:"rgb(69 72 75)"}}>
+                                <button className="btn btn-warning btn-primary" style={{
+                                    fontWeight: "bold",
+                                    width: "auto",
+                                    backgroundColor: "rgb(69 72 75)",
+                                    borderColor: "rgb(69 72 75)"
+                                }}>
                                     Thêm vào giỏ hàng <br/>
                                     <span style={{fontSize: "13px"}}>Cam kết chính hãng / đổi trả 24h</span>
                                 </button>
@@ -71,17 +75,16 @@ export function DetailProduct() {
                                     <span style={{fontSize: "13px"}}>Thanh toán nhanh chóng</span>
                                 </button>
                             </p>
-                            <div className="col-lg-12">
+                            <div className="col-lg-12 mt-4">
                                 <h2 className="section-title mb-4">
-                                    We Help You Make Modern Interior Design
+                                    Mô tả sản phẩm
                                 </h2>
                                 <p>
-                                    Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl
-                                    dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit
-                                    imperdiet dolor tempor tristique. Pellentesque habitant morbi tristique
-                                    senectus et netus et malesuada
+                                    Ghế Ventura mang phong cách đặc trưng Châu Âu với kiểu dáng mềm mại, gợi cảm sẽ mang
+                                    đến một sự thoải mái khó cưỡng cho người ngồi. Thiết kế hiện đại, trang nhã phù hợp
+                                    với nhiều phong cách nội thất khác nhau.
                                 </p>
-                                <ul className="list-unstyled custom-list my-4">
+                                <ul className="list-unstyled custom-list my-4" id="1">
                                     <li>Donec vitae odio quis nisl dapibus malesuada</li>
                                     <li>Donec vitae odio quis nisl dapibus malesuada</li>
                                     <li>Donec vitae odio quis nisl dapibus malesuada</li>
@@ -89,6 +92,9 @@ export function DetailProduct() {
                                 </ul>
                             </div>
                         </div>
+                    </div>
+                    <div className="mt-lg-5">
+                        <img src={thicong} alt="Image" className="img-fluid"/>
                     </div>
                 </div>
             </div>

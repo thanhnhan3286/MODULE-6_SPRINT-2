@@ -4,7 +4,8 @@ export function Footer() {
     return (
         <>
             {/* Start Footer Section */}
-            <footer className="footer-section">
+            <footer className="footer-section" style={{    backgroundImage: "url('https://www.noithatanhbinh.com.vn/Thumb.ashx?s=1920&file=/UploadImages/bg_footer.jpg')"
+            }}>
                 <div className="container relative">
                     <div className="row g-5 mb-5">
                         <div className="col-lg-4">
@@ -14,10 +15,9 @@ export function Footer() {
                                 </a>
                             </div>
                             <p className="mb-4" style={{color: "#ffffffa6"}}>
-                                Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio
-                                quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam
-                                vulputate velit imperdiet dolor tempor tristique. Pellentesque
-                                habitant
+                                Địa chỉ: Tổng công ty nội thất Panda Home. Số 280 Trần Hưng Đạo, Sơn Trà, Đà Nẵng <br/>
+                                Điện thoại: (+84) 900 0000. Fax: (+84) 900 0001 <br/>
+                                Giấy chứng nhận đăng kí doanh nghiệp, mã số doanh nghiệp: 1029384756
                             </p>
                             <ul className="list-unstyled custom-social">
                                 <li>
@@ -59,17 +59,17 @@ export function Footer() {
                                         </li>
                                         <li>
                                             <a href="#" style={{color: "#dee2e6"}}>
-                                                Services
+                                                Sản phẩm
                                             </a>
                                         </li>
                                         <li>
                                             <a href="#" style={{color: "#dee2e6"}}>
-                                                Blog
+                                                Dịch vụ
                                             </a>
                                         </li>
                                         <li>
                                             <a href="#" style={{color: "#dee2e6"}}>
-                                                Contact us
+                                                Liên hệ
                                             </a>
                                         </li>
                                     </ul>
@@ -107,27 +107,37 @@ export function Footer() {
                                     <ul className="list-unstyled">
                                         <li>
                                             <a href="#" style={{color: "#dee2e6"}}>
-                                                <h5>Giới thiệu</h5>
+                                                <h5>Sản phẩm</h5>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="#" style={{color: "#dee2e6"}}>
-                                                Jobs
+                                                Nội thất phòng khách
                                             </a>
                                         </li>
                                         <li>
                                             <a href="#" style={{color: "#dee2e6"}}>
-                                                Our team
+                                                Nội thất phòng ngủ
                                             </a>
                                         </li>
                                         <li>
                                             <a href="#" style={{color: "#dee2e6"}}>
-                                                Leadership
+                                                Nội thất phòng bếp
                                             </a>
                                         </li>
                                         <li>
                                             <a href="#" style={{color: "#dee2e6"}}>
-                                                Privacy Policy
+                                                Nội thất phòng thờ
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" style={{color: "#dee2e6"}}>
+                                                Nội thất văn phòng
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" style={{color: "#dee2e6"}}>
+                                                Đồ gỗ mỹ nghệ
                                             </a>
                                         </li>
                                     </ul>
@@ -142,27 +152,27 @@ export function Footer() {
                                         </li>
                                         <li>
                                             <a href="#" style={{color: "#dee2e6"}}>
-                                                Chính sách bảo mật
+                                                Bảo mật
                                             </a>
                                         </li>
                                         <li>
                                             <a href="#" style={{color: "#dee2e6"}}>
-                                                Chính sách vận chuyển
+                                                Vận chuyển
                                             </a>
                                         </li>
                                         <li>
                                             <a href="#" style={{color: "#dee2e6"}}>
-                                                Chính sách bảo hành
+                                                Bảo hành
                                             </a>
                                         </li>
                                         <li>
                                             <a href="#" style={{color: "#dee2e6"}}>
-                                                Chính sách đổi trả
+                                                Đổi trả
                                             </a>
                                         </li>
                                         <li>
                                             <a href="#" style={{color: "#dee2e6"}}>
-                                                Chính sách thanh toán
+                                                Thanh toán
                                             </a>
                                         </li>
                                     </ul>

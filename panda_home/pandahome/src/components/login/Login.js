@@ -1,318 +1,121 @@
 import React from "react";
+import {Link} from "react-router-dom";
+import {Field} from "formik";
 
 export function Login() {
     return (
         <>
-            <div className="untree_co-section">
+            <div className="untree_co-section bglogin" style={{marginTop:"6%"}}>
                 <div className="container">
                     <div className="row">
                         <div className="col-md-3 mb-5 mb-md-0"/>
                         <div className="col-md-6 mb-5 mb-md-0">
-                            <h2 className="h3 mb-3 text-black">Đăng nhập</h2>
-                                <div className="p-3 p-lg-5 border bg-white">
+
+                            <div className="p-3 p-lg-5 border bg-white" style={{borderRadius: "1rem"}}>
+                                <h2 className="h3 text-center mb-4 fw-bold text-black" style={{marginTop: "-20px"}}>Đăng nhập tài khoản</h2>
                                 <div className="form-group row">
-                                    <div className="col-md-6">
-                                        <label htmlFor="c_fname" className="text-black">
-                                            First Name <span className="text-danger">*</span>
+                                    <div className="col-md-1"/>
+                                    <div className="col-md-3">
+                                        <label htmlFor="c_companyname" className=" fw-bold fs-5 mt-2">
+                                            Email{" "}<span className="text-danger">*</span>
                                         </label>
-                                        <input
-                                            type="text"
-                                            className="form-control"
-                                            id="c_fname"
-                                            name="c_fname"
-                                        />
                                     </div>
-                                    <div className="col-md-6">
-                                        <label htmlFor="c_lname" className="text-black">
-                                            Last Name <span className="text-danger">*</span>
-                                        </label>
+                                    <div className="col-md-7">
                                         <input
                                             type="text"
-                                            className="form-control"
-                                            id="c_lname"
-                                            name="c_lname"
-                                        />
-                                    </div>
-                                </div>
-                                <div className="form-group row">
-                                    <div className="col-md-12">
-                                        <label htmlFor="c_companyname" className="text-black">
-                                            Company Name{" "}
-                                        </label>
-                                        <input
-                                            type="text"
-                                            className="form-control"
+                                            className="form-control mb-3"
                                             id="c_companyname"
                                             name="c_companyname"
                                         />
                                     </div>
+                                    <div className="col-md-1"/>
                                 </div>
                                 <div className="form-group row">
-                                    <div className="col-md-12">
-                                        <label htmlFor="c_address" className="text-black">
-                                            Address <span className="text-danger">*</span>
+                                    <div className="col-md-1"/>
+                                    <div className="col-md-3">
+                                        <label htmlFor="c_address" className="fw-bold fs-5 mt-2">
+                                            Mật khẩu <span className="text-danger">*</span>
                                         </label>
+                                    </div>
+                                    <div className="col-md-7 d-flex">
                                         <input
-                                            type="text"
-                                            className="form-control"
+                                            type="password"
+                                            className="form-control mb-3"
                                             id="c_address"
                                             name="c_address"
-                                            placeholder="Street address"
                                         />
                                     </div>
+                                    <div className="col-md-1"/>
                                 </div>
-                                <div className="form-group mt-3">
-                                    <input
-                                        type="text"
-                                        className="form-control"
-                                        placeholder="Apartment, suite, unit etc. (optional)"
-                                    />
-                                </div>
-                                <div className="form-group row">
-                                    <div className="col-md-6">
-                                        <label htmlFor="c_state_country" className="text-black">
-                                            State / Country <span className="text-danger">*</span>
-                                        </label>
-                                        <input
-                                            type="text"
-                                            className="form-control"
-                                            id="c_state_country"
-                                            name="c_state_country"
-                                        />
-                                    </div>
-                                    <div className="col-md-6">
-                                        <label htmlFor="c_postal_zip" className="text-black">
-                                            Posta / Zip <span className="text-danger">*</span>
-                                        </label>
-                                        <input
-                                            type="text"
-                                            className="form-control"
-                                            id="c_postal_zip"
-                                            name="c_postal_zip"
-                                        />
-                                    </div>
-                                </div>
-                                <div className="form-group row mb-5">
-                                    <div className="col-md-6">
-                                        <label htmlFor="c_email_address" className="text-black">
-                                            Email Address <span className="text-danger">*</span>
-                                        </label>
-                                        <input
-                                            type="text"
-                                            className="form-control"
-                                            id="c_email_address"
-                                            name="c_email_address"
-                                        />
-                                    </div>
-                                    <div className="col-md-6">
-                                        <label htmlFor="c_phone" className="text-black">
-                                            Phone <span className="text-danger">*</span>
-                                        </label>
-                                        <input
-                                            type="text"
-                                            className="form-control"
-                                            id="c_phone"
-                                            name="c_phone"
-                                            placeholder="Phone Number"
-                                        />
-                                    </div>
-                                </div>
-                                <div className="form-group">
-                                    <label
-                                        htmlFor="c_create_account"
-                                        className="text-black"
-                                        data-bs-toggle="collapse"
-                                        href="#create_an_account"
-                                        role="button"
-                                        aria-expanded="false"
-                                        aria-controls="create_an_account"
+                                <div className="row">
+                                    <div
+                                        className="col-md-5"
+                                        style={{
+                                            marginTop: "3%",
+                                            paddingLeft: "8%",
+                                            // color: "rgb(6, 133, 170)",
+                                            fontWeight: "revert"
+                                        }}
                                     >
-                                        <input
-                                            type="checkbox"
-                                            defaultValue={1}
-                                            id="c_create_account"
-                                        />{" "}
-                                        Create an account?
-                                    </label>
-                                    <div className="collapse" id="create_an_account">
-                                        <div className="py-2 mb-4">
-                                            <p className="mb-3">
-                                                Create an account by entering the information below. If
-                                                you are a returning customer please login at the top of
-                                                the page.
-                                            </p>
-                                            <div className="form-group">
-                                                <label
-                                                    htmlFor="c_account_password"
-                                                    className="text-black"
-                                                >
-                                                    Account Password
-                                                </label>
-                                                <input
-                                                    type="email"
-                                                    className="form-control"
-                                                    id="c_account_password"
-                                                    name="c_account_password"
-                                                    placeholder=""
-                                                />
-                                            </div>
-                                        </div>
+                                        <input type="checkbox" name="check" value="1" id="myCheckbox"
+                                               className="myCheckbox"/>
+                                        <label id="dn" htmlFor="myCheckbox" className="myCheckbox">
+                                            Lưu mật khẩu
+                                        </label>
                                     </div>
-                                </div>
-                                <div className="form-group">
-                                    <label
-                                        htmlFor="c_ship_different_address"
-                                        className="text-black"
-                                        data-bs-toggle="collapse"
-                                        href="#ship_different_address"
-                                        role="button"
-                                        aria-expanded="false"
-                                        aria-controls="ship_different_address"
+                                    <div
+                                        className="col-md-7"
+                                        style={{
+                                            marginTop: "3%",
+                                            paddingLeft: "15%",
+                                            color: "rgb(6, 133, 170)",
+                                            fontWeight: "revert",
+                                            display: "flex"
+                                        }}
                                     >
-                                        <input
-                                            type="checkbox"
-                                            defaultValue={1}
-                                            id="c_ship_different_address"
-                                        />{" "}
-                                        Ship To A Different Address?
-                                    </label>
-                                    <div className="collapse" id="ship_different_address">
-                                        <div className="py-2">
-                                            <div className="form-group row">
-                                                <div className="col-md-6">
-                                                    <label htmlFor="c_diff_fname" className="text-black">
-                                                        First Name <span className="text-danger">*</span>
-                                                    </label>
-                                                    <input
-                                                        type="text"
-                                                        className="form-control"
-                                                        id="c_diff_fname"
-                                                        name="c_diff_fname"
-                                                    />
-                                                </div>
-                                                <div className="col-md-6">
-                                                    <label htmlFor="c_diff_lname" className="text-black">
-                                                        Last Name <span className="text-danger">*</span>
-                                                    </label>
-                                                    <input
-                                                        type="text"
-                                                        className="form-control"
-                                                        id="c_diff_lname"
-                                                        name="c_diff_lname"
-                                                    />
-                                                </div>
-                                            </div>
-                                            <div className="form-group row">
-                                                <div className="col-md-12">
-                                                    <label
-                                                        htmlFor="c_diff_companyname"
-                                                        className="text-black"
-                                                    >
-                                                        Company Name{" "}
-                                                    </label>
-                                                    <input
-                                                        type="text"
-                                                        className="form-control"
-                                                        id="c_diff_companyname"
-                                                        name="c_diff_companyname"
-                                                    />
-                                                </div>
-                                            </div>
-                                            <div className="form-group row  mb-3">
-                                                <div className="col-md-12">
-                                                    <label htmlFor="c_diff_address" className="text-black">
-                                                        Address <span className="text-danger">*</span>
-                                                    </label>
-                                                    <input
-                                                        type="text"
-                                                        className="form-control"
-                                                        id="c_diff_address"
-                                                        name="c_diff_address"
-                                                        placeholder="Street address"
-                                                    />
-                                                </div>
-                                            </div>
-                                            <div className="form-group">
-                                                <input
-                                                    type="text"
-                                                    className="form-control"
-                                                    placeholder="Apartment, suite, unit etc. (optional)"
-                                                />
-                                            </div>
-                                            <div className="form-group row">
-                                                <div className="col-md-6">
-                                                    <label
-                                                        htmlFor="c_diff_state_country"
-                                                        className="text-black"
-                                                    >
-                                                        State / Country <span className="text-danger">*</span>
-                                                    </label>
-                                                    <input
-                                                        type="text"
-                                                        className="form-control"
-                                                        id="c_diff_state_country"
-                                                        name="c_diff_state_country"
-                                                    />
-                                                </div>
-                                                <div className="col-md-6">
-                                                    <label
-                                                        htmlFor="c_diff_postal_zip"
-                                                        className="text-black"
-                                                    >
-                                                        Posta / Zip <span className="text-danger">*</span>
-                                                    </label>
-                                                    <input
-                                                        type="text"
-                                                        className="form-control"
-                                                        id="c_diff_postal_zip"
-                                                        name="c_diff_postal_zip"
-                                                    />
-                                                </div>
-                                            </div>
-                                            <div className="form-group row mb-5">
-                                                <div className="col-md-6">
-                                                    <label
-                                                        htmlFor="c_diff_email_address"
-                                                        className="text-black"
-                                                    >
-                                                        Email Address <span className="text-danger">*</span>
-                                                    </label>
-                                                    <input
-                                                        type="text"
-                                                        className="form-control"
-                                                        id="c_diff_email_address"
-                                                        name="c_diff_email_address"
-                                                    />
-                                                </div>
-                                                <div className="col-md-6">
-                                                    <label htmlFor="c_diff_phone" className="text-black">
-                                                        Phone <span className="text-danger">*</span>
-                                                    </label>
-                                                    <input
-                                                        type="text"
-                                                        className="form-control"
-                                                        id="c_diff_phone"
-                                                        name="c_diff_phone"
-                                                        placeholder="Phone Number"
-                                                    />
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <Link to='/signup' style={{
+                                            textDecoration: "underline",
+                                            color: "rgb(6, 133, 170)",
+
+                                            fontSize: "16px",
+                                            paddingRight: "2px"
+                                        }}>Đăng
+                                            ký
+                                        </Link>
+                                        <span style={{fontSize: "18px"}}>&nbsp; / &nbsp;</span>
+                                        <Link href="#" to={''}>
+                                            <p style={{
+                                                textDecoration: "underline",
+                                                fontSize: "16px",
+                                                color: "rgb(6, 133, 170)",
+
+                                            }}>Quên
+                                                mật
+                                                khẩu?</p>
+                                        </Link>
                                     </div>
                                 </div>
-                                <div className="form-group">
-                                    <label htmlFor="c_order_notes" className="text-black">
-                                        Order Notes
-                                    </label>
-                                    <textarea
-                                        name="c_order_notes"
-                                        id="c_order_notes"
-                                        cols={30}
-                                        rows={5}
-                                        className="form-control"
-                                        placeholder="Write your notes here..."
-                                        defaultValue={""}
-                                    />
+                                <div className="text-center" style={{marginBottom: "10px"}}>
+                                    {/*{*/}
+                                    {/*    isSubmitting ?*/}
+                                    {/*        <div style={{marginLeft:"17vw"}} >*/}
+                                    {/*            <div>*/}
+                                    {/*                <ThreeDots/>*/}
+                                    {/*            </div>*/}
+                                    {/*        </div>*/}
+                                    {/*        :*/}
+                                            <button type="submit" className="btn fw-bold"
+                                                    style={{
+                                                        marginTop: "2%",
+                                                        // paddingLeft: "15%",
+                                                        backgroundColor: "rgb(2 81 104)",
+                                                        color: "white",
+                                                        // fontWeight: "bold",
+                                                        fontSize: "18px"
+                                                    }}>
+                                                Đăng Nhập
+                                            </button>
+                                    {/*}*/}
                                 </div>
                             </div>
                         </div>
