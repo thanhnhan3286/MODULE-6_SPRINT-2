@@ -117,17 +117,12 @@ export function Footer() {
                                         </li>
                                         <li>
                                             <a href="#" style={{color: "#dee2e6"}}>
-                                                Nội thất phòng ngủ
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" style={{color: "#dee2e6"}}>
                                                 Nội thất phòng bếp
                                             </a>
                                         </li>
                                         <li>
                                             <a href="#" style={{color: "#dee2e6"}}>
-                                                Nội thất phòng thờ
+                                                Nội thất phòng ngủ
                                             </a>
                                         </li>
                                         <li>

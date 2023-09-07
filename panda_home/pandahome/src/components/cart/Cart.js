@@ -1,19 +1,6 @@
 export function Cart() {
     return (
         <>
-            {/*/!* Start Hero Section *!/*/}
-            {/*<div className="hero">*/}
-            {/*    <div className="container">*/}
-            {/*        /!*<div className="row justify-content-between">*!/*/}
-
-            {/*        /!*    <div className="intro-excerpt">*!/*/}
-            {/*        /!*        <h2 className="text-black">Giỏ hàng của bạn</h2>*!/*/}
-            {/*        /!*    </div>*!/*/}
-
-            {/*        /!*</div>*!/*/}
-            {/*    </div>*/}
-            {/*</div>*/}
-            {/*/!* End Hero Section *!/*/}
             <div className="untree_co-section before-footer-section">
                 <div className="container">
                     <div className="row mb-5">
@@ -147,8 +134,8 @@ export function Cart() {
                                 <div className="col-md-7">
                                     <div className="row">
                                         <div className="col-md-12 text-right border-bottom mb-5">
-                                            <h3 className="text-black h4 text-uppercase">
-                                                Cart Totals
+                                            <h3 className="text-black h4 ">
+                                                Thanh toán:
                                             </h3>
                                         </div>
                                     </div>

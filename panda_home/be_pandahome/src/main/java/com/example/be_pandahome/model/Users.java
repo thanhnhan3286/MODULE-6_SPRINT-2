@@ -19,19 +19,19 @@ public class Users {
     private Integer status;
     @OneToOne
     @JoinColumn(name = "id_role")
-    private Role idRole;
+    private Role role;
 
     public Users() {
     }
 
-    public Users(Long id, String userName, String password, String email, Long verificationCode, Integer status, Role idRole) {
+    public Users(Long id, String userName, String password, String email, Long verificationCode, Integer status, Role role) {
         this.id = id;
         this.userName = userName;
         this.password = password;
         this.email = email;
         this.verificationCode = verificationCode;
         this.status = status;
-        this.idRole = idRole;
+        this.role = role;
     }
 
     public Long getId() {
@@ -82,11 +82,11 @@ public class Users {
         this.status = status;
     }
 
-    public Role getIdRole() {
-        return idRole;
+    public Role getRole() {
+        return role;
     }
 
-    public void setIdRole(Role idRole) {
-        this.idRole = idRole;
+    public void setRole(Role role) {
+        this.role = role;
     }
 }

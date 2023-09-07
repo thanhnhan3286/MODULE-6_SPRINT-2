@@ -3,29 +3,8 @@ import React from "react";
 export function SignUp() {
     return (
         <>
-            {/* Start Hero Section */}
-            {/*<div className="hero">*/}
-            {/*    <div className="container">*/}
-            {/*        <div className="row justify-content-between">*/}
-            {/*            <div className="col-lg-5">*/}
-            {/*                <div className="intro-excerpt">*/}
-            {/*                    <h1>Checkout</h1>*/}
-            {/*                </div>*/}
-            {/*            </div>*/}
-            {/*            <div className="col-lg-7"></div>*/}
-            {/*        </div>*/}
-            {/*    </div>*/}
-            {/*</div>*/}
-            {/* End Hero Section */}
             <div className="untree_co-section">
                 <div className="container">
-                    {/*<div className="row mb-5">*/}
-                    {/*    <div className="col-md-12">*/}
-                    {/*        <div className="border p-4 rounded" role="alert">*/}
-                    {/*            Returning customer? <a href="#">Click here</a> to login*/}
-                    {/*        </div>*/}
-                    {/*    </div>*/}
-                    {/*</div>*/}
                     <div className="row">
                         <div className="col-md-3 mb-5 mb-md-0"/>
                         <div className="col-md-6 mb-5 mb-md-0">

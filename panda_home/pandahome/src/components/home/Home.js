@@ -1,5 +1,5 @@
 import count from "../../images/couch.png";
-import React from "react";
+import React, {useEffect, useState} from "react";
 import cross from "../../images/cross.svg";
 import pkhach from "../../images/pkhach.jpg";
 import pngu from "../../images/pngu.png";
@@ -18,13 +18,26 @@ import bag from "../../images/bag.svg"
 import support from "../../images/support.svg"
 import returns from "../../images/return.svg"
 import tragop from "../../images/tra-gop.png";
-import thicong from "../../images/thi-cong-noi-that-theo-mau.png";
+import thicong from "../../images/thi-cong-noi-that-theo-mau1.png";
+import * as productService from "../../service/ProductService";
+import {Link} from "react-router-dom";
+
 
 export function Home() {
+    const [top4, setTop4] = useState([]);
+    const getTop4 = async () => {
+        const res = await productService.getTop4New();
+        setTop4(res);
+        // console.log(res)
+    }
+    useEffect(() => {
+        getTop4();
+    }, [])
+
     return (
         <>
             {/* Start Hero Section */}
-            <div className="hero" style={{marginTop: "6%"}}>
+            <div className="hero" style={{marginTop: "4%"}}>
                 <div className="container">
                     <div className="row justify-content-between">
                         <div className="col-lg-5">
@@ -114,23 +127,23 @@ export function Home() {
             {/* End Product Section */}
 
 
-      {/*      <div className="container">*/}
-      {/*          <div className="gb-inside-container">*/}
-      {/*              <h2 className="gb-headline gb-headline-574a3afe">*/}
-      {/*<span className="gb-icon">*/}
-      {/*  <svg viewBox="0 0 96.7 3" xmlns="https://www.w3.org/2000/svg">*/}
-      {/*    /!*<path d="M0 0h96.7v3H0z" />*!/*/}
-      {/*  </svg>*/}
-      {/*</span>*/}
-      {/*                  <span className="gb-headline-text">*/}
-      {/*  <a href="#">*/}
-      {/*    NỘI THẤT VĂN PHÒNG*/}
-      {/*  </a>*/}
-      {/*</span>*/}
-      {/*              </h2>*/}
+            {/*      <div className="container">*/}
+            {/*          <div className="gb-inside-container">*/}
+            {/*              <h2 className="gb-headline gb-headline-574a3afe">*/}
+            {/*<span className="gb-icon">*/}
+            {/*  <svg viewBox="0 0 96.7 3" xmlns="https://www.w3.org/2000/svg">*/}
+            {/*    /!*<path d="M0 0h96.7v3H0z" />*!/*/}
+            {/*  </svg>*/}
+            {/*</span>*/}
+            {/*                  <span className="gb-headline-text">*/}
+            {/*  <a href="#">*/}
+            {/*    NỘI THẤT VĂN PHÒNG*/}
+            {/*  </a>*/}
+            {/*</span>*/}
+            {/*              </h2>*/}
 
-      {/*          </div>*/}
-      {/*      </div>*/}
+            {/*          </div>*/}
+            {/*      </div>*/}
 
 
             {/* Start Why Choose Us Section */}
@@ -291,94 +304,42 @@ export function Home() {
             <div className="popular-product">
                 <div className="container">
                     <div className="row">
-                        <div className="col-12 col-md-6 col-lg-3 mb-4 mb-lg-0">
-                            <div className="product-item-sm d-flex">
-                                <div className="thumbnail">
-                                    <img
-                                        src={ghe1}
-                                        alt="Image"
-                                        className="img-fluid"
-                                    />
-                                </div>
-                                <div className="pt-3">
-                                    <h3>Ghế Nordic</h3>
-                                    <p>
-                                        Donec facilisis quam ut purus rutrum lobortis. Donec vitae
-                                        odio{" "}
-                                    </p>
-                                    <p>
-                                        <a href="#" className="btn btn-sm btn-warning" style={{borderRadius: "20px"}}>Chi
-                                            tiết</a>
-                                    </p>
+                        <div className="intro-excerpt">
+                            <h2 className="text-black mb-3 ">Sản phẩm mới</h2>
+                            <h2 className="text-black border-bottom1 mb-5"/>
+                        </div>
+                        {top4.map((top, index) => (
+                            <div className="col-12 col-md-6 col-lg-3 mb-4 mb-lg-0">
+                                <div className="product-item-sm d-flex">
+                                    <div className="thumbnail">
+                                        <img
+                                            src={top.image}
+                                            alt="Image"
+                                            className="img-fluid img-cricle"
+                                            // width={100}
+                                        />
+                                    </div>
+                                    <div className="pt-3">
+                                        <div className="row" >
+                                            <h3 style={{height:"63px"}}>{top.name}</h3>
+                                        </div>
+
+                                        {/*<p>*/}
+                                        {/*    Donec facilisis quam ut purus rutrum lobortis. Donec vitae*/}
+                                        {/*    odio{" "}*/}
+                                        {/*</p>*/}
+                                        <div className="row">
+                                            <p style={{marginBottom: "0px"}}>
+                                                <Link to={`/detail/${top.id}`} href="#" className="btn btn-sm btn-warning"
+                                                   style={{borderRadius: "20px"}}>Chi
+                                                    tiết</Link>
+                                            </p>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
-                        </div>
-                        <div className="col-12 col-md-6 col-lg-3 mb-4 mb-lg-0">
-                            <div className="product-item-sm d-flex">
-                                <div className="thumbnail">
-                                    <img
-                                        src={ghe2}
-                                        alt="Image"
-                                        className="img-fluid"
-                                    />
-                                </div>
-                                <div className="pt-3">
-                                    <h3>Ghế Kruzo Aero</h3>
-                                    <p>
-                                        Donec facilisis quam ut purus rutrum lobortis. Donec vitae
-                                        odio{" "}
-                                    </p>
-                                    <p>
-                                        <a href="#" className="btn btn-sm btn-warning" style={{borderRadius: "20px"}}>Chi
-                                            tiết</a>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-12 col-md-6 col-lg-3 mb-4 mb-lg-0">
-                            <div className="product-item-sm d-flex">
-                                <div className="thumbnail">
-                                    <img
-                                        src={ghe3}
-                                        alt="Image"
-                                        className="img-fluid"
-                                    />
-                                </div>
-                                <div className="pt-3">
-                                    <h3>Ghế Ergonomic</h3>
-                                    <p>
-                                        Donec facilisis quam ut purus rutrum lobortis. Donec vitae
-                                        odio{" "}
-                                    </p>
-                                    <p>
-                                        <a href="#" className="btn btn-sm btn-warning" style={{borderRadius: "20px"}}>Chi
-                                            tiết</a>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-12 col-md-6 col-lg-3 mb-4 mb-lg-0">
-                            <div className="product-item-sm d-flex">
-                                <div className="thumbnail">
-                                    <img
-                                        src={ghe1}
-                                        alt="Image"
-                                        className="img-fluid"
-                                    />
-                                </div>
-                                <div className="pt-3">
-                                    <h3>Ghế Ergonomic</h3>
-                                    <p>
-                                        Donec facilisis quam ut purus rutrum lobortis. Donec vitae
-                                        odio{" "}
-                                    </p>
-                                    <p>
-                                        <a href="#" className="btn btn-sm btn-warning" style={{borderRadius: "20px"}}>Chi
-                                            tiết</a>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+                        ))}
                     </div>
                 </div>
             </div>

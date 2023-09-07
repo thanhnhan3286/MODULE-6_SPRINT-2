@@ -122,6 +122,10 @@ ul li:hover ul.dropdown {
     display: block;
     text-decoration: none;
 }
+.img-cricle{
+    border-radius: 50%; /* Áp dụng hiệu ứng bo tròn */
+    overflow: hidden; /* Đảm bảo hình ảnh không tràn ra khỏi phần tử */
+}
 .bglogin{
     background-image: url("../images/bglogin2.png");
     opacity: 0.8;
@@ -278,7 +282,7 @@ ul li:hover ul.dropdown {
 
 @media (min-width: 992px) {
     .hero {
-        padding: calc(8rem - 30px) 0 8rem 0;
+        padding: calc(8rem - 30px) 0 4rem 0;
     }
 }
 
@@ -520,7 +524,7 @@ ul li:hover ul.dropdown {
 }
 
 .why-choose-section {
-    padding: 3rem 0 7rem;
+    padding: 3rem 0 5rem;
 }
 
 .why-choose-section .img-wrap {
@@ -674,7 +678,7 @@ ul li:hover ul.dropdown {
 }
 
 .popular-product {
-    padding: 0 0 7rem 0;
+    padding: 0 0 4rem 0;
 }
 
 .popular-product .product-item-sm h3 {
@@ -850,7 +854,7 @@ ul li:hover ul.dropdown {
 }
 
 .before-footer-section {
-    padding: 7rem 0 12rem 0 !important;
+    padding: 2rem 0 2rem 0 !important;
 }
 
 .blog-section {
@@ -1036,7 +1040,7 @@ ul li:hover ul.dropdown {
 }
 
 .untree_co-section {
-    padding: 7rem 0;
+    padding: 2rem 0;
 }
 
 .form-control {
