@@ -1,9 +1,5 @@
-import ghe1 from "../../images/product-1.png"
-import ghe2 from "../../images/product-2.png"
-import ghe3 from "../../images/product-3.png"
 import cross from "../../images/cross.svg"
 import React, {useEffect, useState} from "react";
-import count from "../../images/couch.png";
 import * as productService from "../../service/ProductService";
 import {Link} from "react-router-dom";
 
@@ -14,23 +10,28 @@ export function List() {
     const [totalPage, setTotalPage] = useState();
     const [name, setName] = useState('');
     //Lấy danh sách sản phẩm
-    const getAllProduct = async () => {
+    const getAllProduct = async (page) => {
         const res = await productService.getAllProduct(page, name);
-        setListProduct(res.content);
+        const res1 = await productService.getAllProduct(page + 1, name);
+        await setListProduct(() => [...res.content, ...res1.content]);
+        await setPage(1);
+        // const res1 = await productService.getAllProduct(page, name);
         setTotalPage(res.totalPages);
-        console.log(listPrduct);
+        // console.log(listPrduct);
         console.log(totalPage);
     }
     //Load more
     const loadMore = async (page) => {
         const res = await productService.getAllProduct(page, name);
-        setListProduct(() => [...listPrduct, ...res.content]);
-        setPage(prevState => prevState + 1);
+        await setListProduct(() => [...listPrduct, ...res.content]);
+        await setPage(prevState => prevState + 1);
     }
 
     useEffect(() => {
-        getAllProduct();
-    }, [])
+        getAllProduct(page);
+
+        // setPage(1);
+    }, []);
     return (
         <>
             {/* Start Hero Section */}
@@ -69,7 +70,7 @@ export function List() {
                     <div className="row">
                         {/* Start Column 1 */}
                         {listPrduct.map((product, index) => (
-                            <div className="col-12 col-md-4 col-lg-3 mb-5">
+                            <div className="col-12 col-md-4 col-lg-3 mb-5" key={"pr-" + index}>
                                 <a className="product-item" href="#">
                                     <Link to={`/detail/${product.id}`} style={{textDecoration: "none"}}>
                                         <img
@@ -124,50 +125,6 @@ export function List() {
                     </div>
                 </div>
             </div>
-            {/*/!* Start Popular Product *!/*/}
-            {/*<div className="popular-product">*/}
-            {/*    <div className="container">*/}
-            {/*        <div className="row">*/}
-            {/*            <div className="intro-excerpt">*/}
-            {/*                <h2 className="text-black mb-3 ">Sản phẩm liên quan</h2>*/}
-            {/*                <h2 className="text-black border-bottom1 mb-5"/>*/}
-            {/*            </div>*/}
-            {/*            /!*{top4.map((top, index) => (*!/*/}
-            {/*                <div className="col-12 col-md-6 col-lg-3 mb-4 mb-lg-0">*/}
-            {/*                    <div className="product-item-sm d-flex">*/}
-            {/*                        <div className="thumbnail">*/}
-            {/*                            <img*/}
-            {/*                                src={top.image}*/}
-            {/*                                alt="Image"*/}
-            {/*                                className="img-fluid img-cricle"*/}
-            {/*                                // width={100}*/}
-            {/*                            />*/}
-            {/*                        </div>*/}
-            {/*                        <div className="pt-3">*/}
-            {/*                            <div className="row" >*/}
-            {/*                                <h3 style={{height:"63px"}}>"{top.name}"</h3>*/}
-            {/*                            </div>*/}
-
-            {/*                            /!*<p>*!/*/}
-            {/*                            /!*    Donec facilisis quam ut purus rutrum lobortis. Donec vitae*!/*/}
-            {/*                            /!*    odio{" "}*!/*/}
-            {/*                            /!*</p>*!/*/}
-            {/*                            <div className="row">*/}
-            {/*                                <p style={{marginBottom: "0px"}}>*/}
-            {/*                                    <Link to={`/detail/${top.id}`} href="#" className="btn btn-sm btn-warning"*/}
-            {/*                                          style={{borderRadius: "20px"}}>Chi*/}
-            {/*                                        tiết</Link>*/}
-            {/*                                </p>*/}
-            {/*                            </div>*/}
-            {/*                        </div>*/}
-
-            {/*                    </div>*/}
-            {/*                </div>*/}
-            {/*            /!*))}*!/*/}
-            {/*        </div>*/}
-            {/*    </div>*/}
-            {/*</div>*/}
-            {/*/!* End Popular Product *!/*/}
         </>
     )
 }

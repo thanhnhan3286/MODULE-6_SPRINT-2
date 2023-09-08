@@ -16,8 +16,9 @@ export function Footer() {
                             </div>
                             <p className="mb-4" style={{color: "#ffffffa6"}}>
                                 Địa chỉ: Tổng công ty nội thất Panda Home. Số 280 Trần Hưng Đạo, Sơn Trà, Đà Nẵng <br/>
-                                Điện thoại: (+84) 900 0000. Fax: (+84) 900 0001 <br/>
-                                Giấy chứng nhận đăng kí doanh nghiệp, mã số doanh nghiệp: 1029384756
+                                Điện thoại: (+84) 0935 195 966. <br/>
+                                Email: pandahome@gmail.com
+                                 <br/>   Fax: (+84) 900 0001
                             </p>
                             <ul className="list-unstyled custom-social">
                                 <li>

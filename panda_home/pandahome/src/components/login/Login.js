@@ -27,7 +27,7 @@ export function Login() {
     }, [localStorage.getItem("user_name"), localStorage.getItem("password")])
     return (
         <>
-            <div className="untree_co-section bglogin" style={{marginTop: "6%"}}>
+            <div className="untree_co-section bglogin" style={{marginTop: "6%", padding:"7rem 0"}}>
                 <div className="container">
                     <div className="row">
                         <div className="col-md-3 mb-5 mb-md-0"/>

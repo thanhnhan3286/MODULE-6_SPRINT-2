@@ -10,6 +10,10 @@ import {Cart} from "./components/cart/Cart";
 import {Login} from "./components/login/Login";
 import {DetailProduct} from "./components/detail/DetailProduct";
 import {Route,  Routes} from "react-router";
+import {Transport} from "./components/home/policy/Transport";
+import {WarrantyAndRepair} from "./components/home/policy/WarrantyAndRepair";
+import {Payment} from "./components/home/policy/Payment";
+import {Return} from "./components/home/policy/Return";
 
 function App() {
     return (
@@ -23,6 +27,10 @@ function App() {
                 <Route path="/signup" element={<SignUp/>}/>
                 <Route path="/detail/:id" element={<DetailProduct/>}/>
                 <Route path="/cart" element={<Cart/>}/>
+                <Route path="/transport" element={<Transport/>}/>
+                <Route path="/warranty-repair" element={<WarrantyAndRepair/>}/>
+                <Route path="/payment" element={<Payment/>}/>
+                <Route path="/return" element={<Return/>}/>
             </Routes>
             <Footer/>
         </>

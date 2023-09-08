@@ -218,14 +218,13 @@ export function Home() {
                                         <p>
                                             Sản phẩm sẽ được đổi trả nếu sản phẩm có lỗi của <span className="fw-bold"
                                                                                                    style={{color: "rgb(255 167 0)"}}>Panda Home</span> trong
-                                            vòng 30 ngày kế từ ngày giao hàng và trả hàng trong 24 giờ nếu khách hàng
-                                            không vừa ý.
+                                            vòng 30 ngày kế từ ngày giao hàng.
                                         </p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div className="col-lg-5">
+                        <div className="col-lg-6">
                             <div className="img-wrap">
                                 <img
                                     src={why}
@@ -275,14 +274,9 @@ export function Home() {
                                 <li>Nội thất phòng ngủ</li>
                                 <li>Nội thất văn phòng</li>
                             </ul>
-                            {/*<p>*/}
-                            {/*    <a herf="#" className="btn btn-warning" style={{borderRadius: "20px"}}>*/}
-                            {/*        Explore*/}
-                            {/*    </a>*/}
-                            {/*</p>*/}
                             <p>
                                 Chúng tôi biết rằng việc thực hiện các dự án sáng tạo đòi hỏi sự kết hợp giữa động lực,
-                                tham vọng, kỹ năng và bí quyết kỹ thuật, vì vậy tại VN THING, chúng tôi chỉ tập hợp
+                                tham vọng, kỹ năng và bí quyết kỹ thuật, vì vậy tại PANDA HOME, chúng tôi chỉ tập hợp
                                 những người giỏi nhất để đảm bảo cung cấp giải pháp cho khách hàng vừa thực tế vừa phi
                                 thường!
                                 <br/>
@@ -309,7 +303,7 @@ export function Home() {
                             <h2 className="text-black border-bottom1 mb-5"/>
                         </div>
                         {top4.map((top, index) => (
-                            <div className="col-12 col-md-6 col-lg-3 mb-4 mb-lg-0">
+                            <div className="col-12 col-md-6 col-lg-3 mb-4 mb-lg-0" key={index}>
                                 <div className="product-item-sm d-flex">
                                     <div className="thumbnail">
                                         <img
@@ -348,7 +342,7 @@ export function Home() {
             <footer className="footer-section">
                 <div className="container relative">
                     <div className="sofa-img">
-                        <img src={sofa} alt="Image" className="img-fluid"/>
+                        <img src={sofa} alt="Image" className="img-fluid" style={{paddingTop:"25%"}}/>
                     </div>
                     <div className="row">
                         <div className="col-lg-8">

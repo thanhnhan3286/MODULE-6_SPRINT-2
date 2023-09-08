@@ -22,25 +22,28 @@ export function DetailProduct() {
         console.log(res1)
         console.log(images)
     }
-    const responsive = {
-        desktop: {
-            breakpoint: {max: 3000, min: 1024},
-            items: 4
-        },
-        tablet: {
-            breakpoint: {max: 1024, min: 464},
-            items: 2
-        },
-        mobile: {
-            breakpoint: {max: 464, min: 0},
-            items: 1
-        }
-    };
+    // const responsive = {
+    //     desktop: {
+    //         breakpoint: {max: 3000, min: 1024},
+    //         items: 4
+    //     },
+    //     tablet: {
+    //         breakpoint: {max: 1024, min: 464},
+    //         items: 2
+    //     },
+    //     mobile: {
+    //         breakpoint: {max: 464, min: 0},
+    //         items: 1
+    //     }
+    // };
     useEffect(() => {
         getProductAndImages(param.id)
     }, [param.id])
+
+
     // const price = product.price; // Giá tiền cần định dạng
     // const formattedPrice = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(price); // Định dạng giá tiền
+
     if (!product) {
         return null;
     }

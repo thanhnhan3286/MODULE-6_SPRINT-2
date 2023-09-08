@@ -14,6 +14,7 @@ import java.util.List;
 public class ProductServiceImpl implements IProductService {
     @Autowired
     private IProductRepository productRepository;
+
     @Override
     public List<Products> getTop4() {
         return productRepository.getTop4();
@@ -25,7 +26,7 @@ public class ProductServiceImpl implements IProductService {
     }
 
     @Override
-    public Page<Products> getAllProduct(Integer page, String name) {
+    public Page<Products> getAllProduct(Integer page, String name, Long type, Long category) {
         return productRepository.getAllProduct(PageRequest.of(page, 4), name);
     }
 

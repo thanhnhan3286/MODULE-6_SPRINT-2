@@ -19,8 +19,10 @@ public class ProductController {
     private IProductService productService;
     @GetMapping("/all")
     public ResponseEntity<Page<Products>> getAll(@RequestParam(value = "page", defaultValue = "0")Integer page,
-                                                 @RequestParam(value = "name", defaultValue = "")String name){
-        Page<Products> productsPage =productService.getAllProduct(page,name);
+                                                 @RequestParam(value = "name", defaultValue = "")String name,
+                                                 @RequestParam(value = "type", defaultValue = "")Long type,
+                                                 @RequestParam(value = "category", defaultValue = "")Long category){
+        Page<Products> productsPage =productService.getAllProduct(page,name, type, category);
         if(productsPage==null||productsPage.isEmpty()){
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }else {
