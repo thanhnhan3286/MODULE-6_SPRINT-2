@@ -136,6 +136,10 @@ ul li:hover ul.dropdown {
     background-image: url("../images/bglogin2.png");
     opacity: 0.8;
 }
+.bgsignup{
+    background-image: url("../images/spall.jpg");
+    opacity: 0.8;
+}
 .custom-navbar {
     background: #000000 !important;
     /*padding-top: 20px;*/
@@ -249,7 +253,7 @@ ul li:hover ul.dropdown {
 }
 a.active{
     content: "";
-    color: yellow;
+    color: #ffa700;
     /*position: absolute;*/
     bottom: 0;
     left: 8px;
@@ -297,6 +301,10 @@ a.active{
     background: #2b302ec2;
     padding: calc(3rem - 20px) 0 0rem 0;
 }
+/*#sp .hero {*/
+/*    background-image: url("https://www.noithatanhbinh.com.vn/Thumb.ashx?s=1492&file=/UploadImages/Furniture/grouptest1.jpg");*/
+/*    padding: calc(3rem - 20px) 0 0rem 0;*/
+/*}*/
 
 @media (min-width: 768px) {
     .hero {
@@ -451,7 +459,7 @@ a.active{
 }
 
 .product-section {
-    padding: 7rem 0;
+    padding: 7rem 0 2rem;
 }
 
 .product-section .product-item {
@@ -1120,7 +1128,10 @@ textarea {
     height: auto !important;
 }
 .border-bottom1 {
-    border-bottom: 2px solid #000000
+    border-bottom: 2px solid #000000;
+}
+.border-bottom5 {
+    border-bottom: 5px solid #ffa700
 }
 
 .site-blocks-table {
@@ -1133,6 +1144,9 @@ textarea {
 /*.product-quantity{*/
 /*text-align: left;*/
 /*}*/
+.text-yl{
+    color: #ffa700;
+}
 .quantity-amount{
     text-align: center;
     margin: 0 auto;

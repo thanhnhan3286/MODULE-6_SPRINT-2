@@ -17,16 +17,17 @@ import java.util.List;
 public class ProductController {
     @Autowired
     private IProductService productService;
+
     @GetMapping("/all")
-    public ResponseEntity<Page<Products>> getAll(@RequestParam(value = "page", defaultValue = "0")Integer page,
-                                                 @RequestParam(value = "name", defaultValue = "")String name,
-                                                 @RequestParam(value = "type", defaultValue = "")Long type,
-                                                 @RequestParam(value = "category", defaultValue = "")Long category){
-        Page<Products> productsPage =productService.getAllProduct(page,name, type, category);
-        if(productsPage==null||productsPage.isEmpty()){
+    public ResponseEntity<Page<Products>> getAll(@RequestParam(value = "page", defaultValue = "0") Integer page,
+                                                 @RequestParam(value = "name", defaultValue = "") String name,
+                                                 @RequestParam(value = "type", defaultValue = "") String type,
+                                                 @RequestParam(value = "category", defaultValue = "") String category) {
+        Page<Products> productsPage = productService.getAllProduct(page, name, type, category);
+        if (productsPage == null || productsPage.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }else {
-            return new ResponseEntity<>(productsPage,HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(productsPage, HttpStatus.OK);
         }
     }
 
@@ -39,22 +40,24 @@ public class ProductController {
             return new ResponseEntity<>(productsList, HttpStatus.OK);
         }
     }
+
     @GetMapping("/detail/{id}")
-    public ResponseEntity<Products> getProById(@PathVariable Long id){
+    public ResponseEntity<Products> getProById(@PathVariable Long id) {
         Products product = productService.findById(id);
-        if(product == null){
+        if (product == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }else {
-            return new ResponseEntity<>(product,HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(product, HttpStatus.OK);
         }
     }
+
     @GetMapping("/same/{id}")
-    public ResponseEntity<List<Products>> getSamePro(@PathVariable Long id){
+    public ResponseEntity<List<Products>> getSamePro(@PathVariable Long id) {
         List<Products> productsList = productService.getSamePro(id);
-        if(productsList==null || productsList.isEmpty()){
+        if (productsList == null || productsList.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }else {
-            return new ResponseEntity<>(productsList,HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(productsList, HttpStatus.OK);
         }
     }
 }

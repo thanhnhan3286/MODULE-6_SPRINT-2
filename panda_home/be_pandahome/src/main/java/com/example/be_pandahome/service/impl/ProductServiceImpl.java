@@ -26,8 +26,8 @@ public class ProductServiceImpl implements IProductService {
     }
 
     @Override
-    public Page<Products> getAllProduct(Integer page, String name, Long type, Long category) {
-        return productRepository.getAllProduct(PageRequest.of(page, 4), name);
+    public Page<Products> getAllProduct(Integer page, String name, String type, String category) {
+        return productRepository.getAllProduct(PageRequest.of(page, 4), name, type, category);
     }
 
     @Override

@@ -40,6 +40,10 @@ export function DetailProduct() {
         getProductAndImages(param.id)
     }, [param.id])
 
+    useEffect(()=>{
+        window.scrollTo(0,0)
+    },[])
+
 
     // const price = product.price; // Giá tiền cần định dạng
     // const formattedPrice = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(price); // Định dạng giá tiền

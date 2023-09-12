@@ -21,6 +21,7 @@ import tragop from "../../images/tra-gop.png";
 import thicong from "../../images/thi-cong-noi-that-theo-mau1.png";
 import * as productService from "../../service/ProductService";
 import {Link} from "react-router-dom";
+import spall1 from "../../images/spall1.jpg";
 
 
 export function Home() {
@@ -33,19 +34,22 @@ export function Home() {
     useEffect(() => {
         getTop4();
     }, [])
+    useEffect(()=>{
+      window.scrollTo(0,0)
+    },[])
 
     return (
         <>
             {/* Start Hero Section */}
-            <div className="hero" style={{marginTop: "4%"}}>
+            <div className="hero" style={{marginTop: "4%", backgroundImage:`url(${spall1})`}}>
                 <div className="container">
                     <div className="row justify-content-between">
                         <div className="col-lg-5">
-                            <div className="intro-excerpt">
+                            <div className="intro-excerpt mt-4">
                                 <h1>
                                     Thiết kế hiện đại <span className="d-block">Sang trọng</span>
                                 </h1>
-                                <p className="mb-4 fs-4">
+                                <p className="mb-4 fs-4 text-white">
                                     Panda Home cung cấp nội thất phù hợp với mọi gia đình
                                 </p>
                                 {/*<p>*/}
@@ -55,11 +59,11 @@ export function Home() {
                                 {/*</p>*/}
                             </div>
                         </div>
-                        <div className="col-lg-7">
-                            <div className="hero-img-wrap">
-                                <img src={count} className="img-fluid"/>
-                            </div>
-                        </div>
+                        {/*<div className="col-lg-7">*/}
+                        {/*    <div className="hero-img-wrap">*/}
+                        {/*        <img src={count} className="img-fluid"/>*/}
+                        {/*    </div>*/}
+                        {/*</div>*/}
                     </div>
                 </div>
             </div>
@@ -72,7 +76,7 @@ export function Home() {
                         {/* Start Column 1 */}
                         <div className="col-md-12 col-lg-3 mb-5 mb-lg-0">
                             <h2 className="mb-4 section-title">
-                                <span className=" bg-warning"> Panda Home </span> <br/>
+                                <span className=" bg-warning" > Panda Home </span> <br/>
                                 <span className="fs-3" style={{color: "#000000a8"}}>Cửa hàng nội thất</span>
                             </h2>
                             <p className="mb-4">
@@ -81,9 +85,9 @@ export function Home() {
                                 theo mẫu của bạn.{" "}
                             </p>
                             <div>
-                                <a href="shop.html" className="btn btn-warning me-2 fw-bold" style={{color: "black"}}>
+                                <Link to={"/list"} className="btn btn-warning me-2 fw-bold" style={{color: "black"}}>
                                     Gian hàng
-                                </a>
+                                </Link>
                             </div>
                         </div>
                         {/* End Column 1 */}
@@ -126,38 +130,15 @@ export function Home() {
             </div>
             {/* End Product Section */}
 
-
-            {/*      <div className="container">*/}
-            {/*          <div className="gb-inside-container">*/}
-            {/*              <h2 className="gb-headline gb-headline-574a3afe">*/}
-            {/*<span className="gb-icon">*/}
-            {/*  <svg viewBox="0 0 96.7 3" xmlns="https://www.w3.org/2000/svg">*/}
-            {/*    /!*<path d="M0 0h96.7v3H0z" />*!/*/}
-            {/*  </svg>*/}
-            {/*</span>*/}
-            {/*                  <span className="gb-headline-text">*/}
-            {/*  <a href="#">*/}
-            {/*    NỘI THẤT VĂN PHÒNG*/}
-            {/*  </a>*/}
-            {/*</span>*/}
-            {/*              </h2>*/}
-
-            {/*          </div>*/}
-            {/*      </div>*/}
-
-
             {/* Start Why Choose Us Section */}
             <div className="why-choose-section">
                 <div className="container">
                     <div className="row justify-content-between">
                         <div className="col-lg-6">
                             <h2 className="section-title">Tại sao chọn Panda Home</h2>
-                            {/*<p>*/}
-                            {/*    Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet*/}
-                            {/*    velit. Aliquam vulputate velit imperdiet dolor tempor tristique.*/}
-                            {/*</p>*/}
                             <div className="row my-5">
                                 <div className="col-6 col-md-6">
+                                    <Link to={"/transport"}>
                                     <div className="feature">
                                         <div className="icon">
                                             <img
@@ -168,10 +149,11 @@ export function Home() {
                                         </div>
                                         <h3 className="fw-bold">Giao hàng hỏa tốc &amp; Miễn phí vận chuyển</h3>
                                         <p>
-                                            Sản phẩm sẽ được giao hàng miễn phí trong vòng 2 giờ với phạm vi nội thành
+                                            Sản phẩm sẽ được giao hàng miễn phí trong phạm vi nội thành
                                             Đà Nẵng.
                                         </p>
                                     </div>
+                                    </Link>
                                 </div>
                                 <div className="col-6 col-md-6">
                                     <div className="feature">
@@ -190,41 +172,46 @@ export function Home() {
                                     </div>
                                 </div>
                                 <div className="col-6 col-md-6">
-                                    <div className="feature">
-                                        <div className="icon">
-                                            <img
-                                                src={support}
-                                                alt="Image"
-                                                className="imf-fluid"
-                                            />
+                                    <Link to={"/payment"}>
+                                        <div className="feature">
+                                            <div className="icon">
+                                                <img
+                                                    src={support}
+                                                    alt="Image"
+                                                    className="imf-fluid"
+                                                />
+                                            </div>
+                                            <h3 className="fw-bold">Hỗ trợ thanh toán</h3>
+                                            <p>
+                                                Hỗ trợ thanh toán trực tiếp sau khi giao hàng, thanh toán online và trả góp
+                                                0% lãi xuất qua nhiều hệ thống ngân hàng số.
+                                            </p>
                                         </div>
-                                        <h3 className="fw-bold">Hỗ trợ thanh toán</h3>
-                                        <p>
-                                            Hỗ trợ thanh toán trực tiếp sau khi giao hàng, thanh toán online và trả góp
-                                            0% lãi xuất qua nhiều hệ thống ngân hàng số.
-                                        </p>
-                                    </div>
+                                    </Link>
                                 </div>
                                 <div className="col-6 col-md-6">
-                                    <div className="feature">
-                                        <div className="icon">
-                                            <img
-                                                src={returns}
-                                                alt="Image"
-                                                className="imf-fluid"
-                                            />
+                                    <Link to={"/return"}>
+                                        <div className="feature">
+                                            <div className="icon">
+                                                <img
+                                                    src={returns}
+                                                    alt="Image"
+                                                    className="imf-fluid"
+                                                />
+                                            </div>
+                                            <h3 className="fw-bold">Hoàn trả miễn phí</h3>
+                                            <p>
+                                                Sản phẩm sẽ được đổi trả nếu sản phẩm có lỗi của <span className="fw-bold"
+                                                                                                       style={{color: "rgb(255 167 0)"}}>Panda Home</span> trong
+                                                vòng 30 ngày kế từ ngày giao hàng.
+                                            </p>
                                         </div>
-                                        <h3 className="fw-bold">Hoàn trả miễn phí</h3>
-                                        <p>
-                                            Sản phẩm sẽ được đổi trả nếu sản phẩm có lỗi của <span className="fw-bold"
-                                                                                                   style={{color: "rgb(255 167 0)"}}>Panda Home</span> trong
-                                            vòng 30 ngày kế từ ngày giao hàng.
-                                        </p>
-                                    </div>
+                                    </Link>
+
                                 </div>
                             </div>
                         </div>
-                        <div className="col-lg-6">
+                        <div className="col-lg-5">
                             <div className="img-wrap">
                                 <img
                                     src={why}
@@ -317,11 +304,6 @@ export function Home() {
                                         <div className="row" >
                                             <h3 style={{height:"63px"}}>{top.name}</h3>
                                         </div>
-
-                                        {/*<p>*/}
-                                        {/*    Donec facilisis quam ut purus rutrum lobortis. Donec vitae*/}
-                                        {/*    odio{" "}*/}
-                                        {/*</p>*/}
                                         <div className="row">
                                             <p style={{marginBottom: "0px"}}>
                                                 <Link to={`/detail/${top.id}`} href="#" className="btn btn-sm btn-warning"

@@ -82,19 +82,19 @@ export function Header() {
                                 {/*</a>*/}
                                 <ul className="dropdown">
                                     <li>
-                                        <a className="nav-link bg-black" href="#">Nội thất phòng khách</a>
+                                        <NavLink to={"/list/khach"} className="nav-link bg-black">Nội thất phòng khách</NavLink>
                                     </li>
                                     <li>
-                                        <a className="nav-link bg-black" href="#">Nội thất phòng bếp</a>
+                                        <NavLink to={"/list/bep"} className="nav-link bg-black">Nội thất phòng bếp</NavLink>
                                     </li>
                                     <li>
-                                        <a className="nav-link bg-black" href="#">Nội thất phòng ngủ</a>
+                                        <NavLink to={"/list/ngu"} className="nav-link bg-black">Nội thất phòng ngủ</NavLink>
                                     </li>
                                     <li>
-                                        <a className="nav-link bg-black" href="#">Nội thất văn phòng</a>
+                                        <NavLink to={"/list/van"} className="nav-link bg-black">Nội thất văn phòng</NavLink>
                                     </li>
                                     <li>
-                                        <a className="nav-link bg-black" href="#">Đồ gỗ mỹ nghệ</a>
+                                        <NavLink to={"/list/nghe"} className="nav-link bg-black">Đồ gỗ mỹ nghệ</NavLink>
                                     </li>
                                 </ul>
                             </li>
@@ -116,27 +116,27 @@ export function Header() {
                             {/*    </ul>*/}
                             {/*</li>*/}
                             <li>
-                                <NavLink to="/transport" className="nav-link" href="#">
+                                <NavLink to="/policy" className="nav-link" href="#">
                                     Chính sách ▾
                                 </NavLink>
                                 <ul className="dropdown">
 
                                     <li>
-                                        <NavLink to={"/transport"} className="nav-link bg-black">Vận chuyển</NavLink>
+                                        <NavLink to={"/policy/transport"} className="nav-link bg-black">Vận chuyển</NavLink>
                                     </li>
                                     <li>
-                                        <NavLink to={"/warranty-repair"} className="nav-link bg-black">Bảo hành - Sửa
+                                        <NavLink to={"/policy/warranty-repair"} className="nav-link bg-black">Bảo hành - Sửa
                                             chữa</NavLink>
                                     </li>
                                     <li>
-                                        <NavLink to={"/return"} className="nav-link bg-black">Chính sách đổi
+                                        <NavLink to={"/policy/return"} className="nav-link bg-black">Chính sách đổi
                                             trả</NavLink>
                                     </li>
                                     {/*<li>*/}
                                     {/*    <a className="nav-link bg-black" href="#"></a>*/}
                                     {/*</li>*/}
                                     <li>
-                                        <NavLink to={"/payment"} className="nav-link bg-black">Chính sách thanh
+                                        <NavLink to={"/policy/payment"} className="nav-link bg-black">Chính sách thanh
                                             toán</NavLink>
                                     </li>
 

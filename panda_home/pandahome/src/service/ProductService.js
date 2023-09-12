@@ -26,10 +26,10 @@ export const getAllImg = async (id) => {
 }
 
 
-export const getAllProduct = async (page, name) => {
+export const getAllProduct = async (page, name, type, category) => {
     const token = localStorage.getItem('token');
     try {
-        return (await axios.get(`http://localhost:8080/api/product/all?page=${page}&name=${name}`
+        return (await axios.get(`http://localhost:8080/api/product/all?page=${page}&name=${name}&type=${type}&category=${category}`
             // , {
             //     headers: {
             //         Authorization: `Bearer ${token}`,

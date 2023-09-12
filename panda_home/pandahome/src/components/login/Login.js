@@ -25,9 +25,12 @@ export function Login() {
         setPwUs(localStorage.getItem("user_name"), localStorage.getItem("password"))
             .then(r => null);
     }, [localStorage.getItem("user_name"), localStorage.getItem("password")])
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
     return (
         <>
-            <div className="untree_co-section bglogin" style={{marginTop: "6%", padding:"7rem 0"}}>
+            <div className="untree_co-section bglogin" style={{marginTop: "6%", padding: "7rem 0"}}>
                 <div className="container">
                     <div className="row">
                         <div className="col-md-3 mb-5 mb-md-0"/>
@@ -39,15 +42,15 @@ export function Login() {
                                     check: '',
                                 }}
                                 validationSchema={yup.object({
-                                    username: yup.string()
+                                    username: yup.string().trim()
                                         .required('Chưa nhập email đăng nhập.')
                                         .email('Chưa đúng định dạng email: xxx@xxx.xxx')
                                         .min(6, 'Ít nhất 6 ký tự.')
                                         .max(50, 'Tối đa 50 ký tự.'),
                                     // .matches(/^\\w+@\\w+(.\\w+)$/, 'Chưa đúng định dạng email (xxx@xxx.xxx) với x không phải là ký tự đặc biệt '),
-                                    password: yup.string()
+                                    password: yup.string().trim()
                                         .required('Chưa nhập mật khẩu.')
-                                    // .matches(/^(?=.*[A-Z])(?=.*[0-9]).{6,20}$/, 'Mật khẩu phải từ 8 ký tự và ít hơn 20 ký tự, có chứa ký tự in hoa và ký tự số'),
+                                        // .matches(/^(?=.*[A-Z])(?=.*[0-9]).{6,20}$/, 'Mật khẩu phải từ 6 ký tự và ít hơn 20 ký tự, có chứa ký tự in hoa và ký tự số'),
 
                                 })}
                                 onSubmit={async (values, {setSubmitting, resetForm}) => {

@@ -1,12 +1,24 @@
+import {NavLink} from "react-router-dom";
+import React, {useEffect} from "react";
+
 export function Cart() {
+    useEffect(()=>{
+        window.scrollTo(0,0)
+    },[])
     return (
         <>
-            <div className="untree_co-section before-footer-section">
+            <div className="untree_co-section before-footer-section" style={{marginTop:"5%"}}>
                 <div className="container">
                     <div className="row mb-5">
                         <form className="col-md-12" method="post">
+                            <div className=" d-flex">
+                                <NavLink to={"/home"} id="tc" className="mt-3 fw-bolder fs-6">
+                                    Trang chủ
+                                </NavLink>
+                                <a href={"/payment"} className="mt-3 text-black fs-6">&nbsp; / Giỏ hàng của bạn</a>
+                            </div>
                             <div className="intro-excerpt mt-lg-5">
-                                <h2 className="text-black mb-3 ">Giỏ hàng của bạn</h2>
+                                <h2 className="text-black mb-3 mt-5 ">Giỏ hàng của bạn</h2>
                                 <h2 className="text-black border-bottom1"/>
                             </div>
                             <div className="site-blocks-table">

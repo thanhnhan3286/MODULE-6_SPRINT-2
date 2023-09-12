@@ -26,8 +26,8 @@ export function Payment() {
                                 <p>+ Thanh toán 70% còn lại khi nhận đủ hàng.</p>
                                 <p> Trong từng trường hợp cụ thể, vui lòng liên lạc cửa hàng PANDA HOME nơi bạn từng mua
                                     hoặc liên lạc qua hotline:
-                                    <span className="fw-bold"> 0935.195.966</span>
-                                    để có được hỗ trợ tốt nhất.</p>
+                                    <span className="fw-bold"> 0935.195.966 </span>
+                                     để có được hỗ trợ tốt nhất.</p>
 
                                 <p className="text-black mb-3 fs-6 fw-bold mt-3">2. Thông tin thanh toán: </p>
                                 <p>
