@@ -32,6 +32,23 @@ public class OrderDetail {
     public OrderDetail() {
     }
 
+    public OrderDetail(Long price, Integer quantity, Order orderId, Products productId) {
+        this.price = price;
+        this.quantity = quantity;
+        this.orderId = orderId;
+        this.productId = productId;
+    }
+
+    public OrderDetail(Long price, Integer quantity, LocalDateTime createDate, LocalDateTime updateDate, Boolean statusDelete, Order orderId, Products productId) {
+        this.price = price;
+        this.quantity = quantity;
+        this.createDate = createDate;
+        this.updateDate = updateDate;
+        this.statusDelete = statusDelete;
+        this.orderId = orderId;
+        this.productId = productId;
+    }
+
     public OrderDetail(Long id, Long price, Integer quantity, LocalDateTime createDate, LocalDateTime updateDate, Boolean statusDelete, Order orderId, Products productId) {
         this.id = id;
         this.price = price;

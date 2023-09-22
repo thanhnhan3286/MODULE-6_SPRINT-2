@@ -7,4 +7,6 @@ import java.io.UnsupportedEncodingException;
 
 public interface IUserService {
     boolean signUp(CustomerDto customerDto) throws MessagingException, UnsupportedEncodingException;
+
+    boolean checkCode(CustomerDto customerDto);
 }

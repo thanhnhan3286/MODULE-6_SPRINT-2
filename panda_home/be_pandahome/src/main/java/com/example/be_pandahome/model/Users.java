@@ -1,6 +1,7 @@
 package com.example.be_pandahome.model;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 public class Users {
@@ -17,6 +18,8 @@ public class Users {
     private Long verificationCode;
     @Column(name = "status")
     private Integer status;
+    @Column(name = "create_time", columnDefinition = "TIMESTAMP DEFAULT now()")
+    private LocalDateTime createTime;
     @OneToOne
     @JoinColumn(name = "id_role")
     private Role role;
@@ -32,6 +35,25 @@ public class Users {
         this.verificationCode = verificationCode;
         this.status = status;
         this.role = role;
+    }
+
+    public Users(Long id, String userName, String password, String email, Long verificationCode, Integer status, LocalDateTime createTime, Role role) {
+        this.id = id;
+        this.userName = userName;
+        this.password = password;
+        this.email = email;
+        this.verificationCode = verificationCode;
+        this.status = status;
+        this.createTime = createTime;
+        this.role = role;
+    }
+
+    public LocalDateTime getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(LocalDateTime createTime) {
+        this.createTime = createTime;
     }
 
     public Long getId() {

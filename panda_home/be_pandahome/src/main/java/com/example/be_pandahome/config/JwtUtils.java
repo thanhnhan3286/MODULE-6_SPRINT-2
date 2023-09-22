@@ -8,7 +8,7 @@ import java.nio.charset.StandardCharsets;
 
 public class JwtUtils {
     public static SecretKey generateHS512Key() {
-        String secret = "yourSecretKey";
+        String secret = "Nhaanh328";
         byte[] byteKey = secret.getBytes(StandardCharsets.UTF_8);
         return new SecretKeySpec(byteKey, SignatureAlgorithm.HS512.getJcaName());
     }

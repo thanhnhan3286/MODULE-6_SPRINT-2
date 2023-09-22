@@ -28,6 +28,8 @@ public class Customers {
     @OneToOne
     @JoinColumn(name = "id_user")
     private Users idUser;
+    @Column(name = "status_delete", columnDefinition = "BIT DEFAULT 0")
+    private Boolean statusDelete;
 
     public Customers() {
     }
@@ -43,6 +45,28 @@ public class Customers {
         this.createDate = createDate;
         this.updateDate = updateDate;
         this.idUser = idUser;
+    }
+
+    public Customers(Long id, String name, String address, String phoneNumber, String email, Date birthday, String gender, LocalDateTime createDate, LocalDateTime updateDate, Users idUser, Boolean statusDelete) {
+        this.id = id;
+        this.name = name;
+        this.address = address;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.birthday = birthday;
+        this.gender = gender;
+        this.createDate = createDate;
+        this.updateDate = updateDate;
+        this.idUser = idUser;
+        this.statusDelete = statusDelete;
+    }
+
+    public Boolean getStatusDelete() {
+        return statusDelete;
+    }
+
+    public void setStatusDelete(Boolean statusDelete) {
+        this.statusDelete = statusDelete;
     }
 
     public Long getId() {

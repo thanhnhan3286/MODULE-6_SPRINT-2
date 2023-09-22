@@ -26,8 +26,12 @@ public interface IProductRepository extends JpaRepository<Products, Long> {
             "         WHERE p.name LIKE CONCAT('%',:name,'%')\n" +
             "           AND pt.name LIKE CONCAT('%',:type,'%')\n" +
             "           AND c.name LIKE CONCAT('%',:cate,'%')\n" +
-            "           AND p.status_delete = 0 order by p.product_type")
-    Page<Products> getAllProduct(Pageable page, @Param("name") String name, @Param("type")String type, @Param("cate")String cate);
+            "AND (p.price BETWEEN :about1 AND :about2)" +
+            "           AND p.status_delete = 0 ")
+    Page<Products> getAllProduct(Pageable page, @Param("name") String name,
+                                 @Param("type") String type, @Param("cate") String cate,
+                                 @Param("about1") String about1,
+                                 @Param("about2") String about2);
 
     @Query(nativeQuery = true, value = "SELECT * FROM products AS p WHERE p.product_type = :id AND p.status_delete = 0")
     List<Products> getTheSamePro(@Param("id") Long id);

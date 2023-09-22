@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.method.P;
+
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,10 +22,13 @@ public class ProductController {
     public ResponseEntity<Page<Products>> getAll(@RequestParam(value = "page", defaultValue = "0") Integer page,
                                                  @RequestParam(value = "name", defaultValue = "") String name,
                                                  @RequestParam(value = "type", defaultValue = "") String type,
-                                                 @RequestParam(value = "category", defaultValue = "") String category) {
-        Page<Products> productsPage = productService.getAllProduct(page, name, type, category);
+                                                 @RequestParam(value = "category", defaultValue = "") String category,
+                                                 @RequestParam(value = "price", defaultValue = "") String price,
+                                                 @RequestParam(value = "orderBy", defaultValue = "") String orderBy
+    ) {
+        Page<Products> productsPage = productService.getAllProduct(page, name, type, category, price, orderBy);
         if (productsPage == null || productsPage.isEmpty()) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(productsPage,HttpStatus.OK);
         } else {
             return new ResponseEntity<>(productsPage, HttpStatus.OK);
         }

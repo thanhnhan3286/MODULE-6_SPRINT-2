@@ -1,7 +1,10 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {Link,NavLink} from "react-router-dom";
 
 export function Transport() {
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
     return (
         <>
             <div className="popular-product mt-lg-5" style={{paddingLeft:"10%", paddingRight:"10%"}}>

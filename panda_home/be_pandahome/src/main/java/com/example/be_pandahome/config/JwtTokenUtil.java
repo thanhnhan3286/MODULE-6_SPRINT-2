@@ -15,7 +15,7 @@ public class JwtTokenUtil {
 
     private static final long JWT_TOKEN_VALIDITY = 5 * 60 * 60;
 
-    private final String secret = "bNjWIq9nGC";
+    private final String secret = "Nhaanh328";
 
 
     public String generateToken(String username) {

@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {ThreeDots} from "react-loader-spinner";
+import {ThreeDots, RotatingLines} from "react-loader-spinner";
 import {Link, useNavigate} from "react-router-dom";
 import {ErrorMessage, Field, Form, Formik} from "formik";
 import * as yup from "yup";
@@ -13,6 +13,12 @@ export function SignUp() {
     const today = new Date();
     const maxDate = new Date(today.getFullYear() - 18, today.getMonth(), today.getDate());
     const minDate = new Date(today.getFullYear() - 100, today.getMonth(), today.getDate());
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        if (token) {
+            nav("/")
+        }
+    });
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [])
@@ -58,7 +64,7 @@ export function SignUp() {
                                     passwordConfirm: yup.string().trim().required("Chưa nhập lại mật khẩu.")
                                         .oneOf([yup.ref('password'), null], 'Mật khẩu nhập lại không đúng.'),
                                     address: yup.string().trim().required("Chưa nhập địa chỉ khách hàng.")
-                                        .min(2, "Ít nhất 5 ký tự.")
+                                        .min(2, "Ít nhất 2 ký tự.")
                                         .max(200, "Không được quá 200 ký tự."),
 
                                 })}
@@ -95,8 +101,9 @@ export function SignUp() {
                                             <div className="col-md-8">
                                                 <Form>
                                                     <h2 className="h3 mb-4 fw-bold text-black"
-                                                        style={{marginTop: "-20px"}}>Đăng
-                                                        ký tài khoản</h2>
+                                                        style={{marginTop: "-20px"}}>
+                                                        Đăng ký tài khoản
+                                                    </h2>
                                                     <div className="form-group">
                                                         <label htmlFor="name" className="text-black">
                                                             Họ tên: <span className="text-danger">*</span>
@@ -248,9 +255,9 @@ export function SignUp() {
                                                     <div className="text-center mt-3" style={{marginBottom: "10px"}}>
                                                         {
                                                             isSubmitting ?
-                                                                <div style={{marginLeft: "17vw"}}>
+                                                                <div>
                                                                     <div>
-                                                                        <ThreeDots/>
+                                                                        <RotatingLines/>
                                                                     </div>
                                                                 </div>
                                                                 :

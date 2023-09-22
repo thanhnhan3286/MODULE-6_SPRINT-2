@@ -22,4 +22,12 @@ public interface ICustomerRepository extends JpaRepository<Customers, Long> {
             " values (:#{#customerDto.name}, :#{#customerDto.address},:#{#customerDto.phoneNumber},:#{#customerDto.email}," +
             ":#{#customerDto.birthday},:#{#customerDto.gender},1,:idUser)", nativeQuery = true)
     void createCustomer(@Param("customerDto") CustomerDto customerDto, @Param("idUser") Long idUser);
+
+    @Query(value = "SELECT * FROM customers as c where c.email = :userName", nativeQuery = true)
+    Customers findByUserName(@Param("userName") String userName);
+
+    @Modifying
+    @Transactional
+    @Query(nativeQuery = true,value = "update customers as c set c.status_delete = false where c.email = :email")
+    void setStatusToFalse(@Param("email") String email);
 }

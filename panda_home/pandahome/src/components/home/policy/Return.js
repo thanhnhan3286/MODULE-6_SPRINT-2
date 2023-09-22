@@ -1,7 +1,10 @@
 import {NavLink} from "react-router-dom";
-import React from "react";
+import React, {useEffect} from "react";
 
 export function Return() {
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
     return (
         <>
             <div className="popular-product mt-lg-5" style={{paddingLeft: "10%", paddingRight: "10%"}}>
@@ -11,7 +14,7 @@ export function Return() {
                             <NavLink to={"/home"} id="tc" className="mt-3 fw-bolder fs-6">
                                 Trang chủ
                             </NavLink>
-                            <a href={"/return"} className="mt-3 text-black fs-6">&nbsp; / Chính sách đổi trả</a>
+                            <a href={"/policy/return"} className="mt-3 text-black fs-6">&nbsp; / Chính sách đổi trả</a>
                         </div>
                         <div className="intro-excerpt ">
                             <h2 className="text-black mb-3 text-uppercase fw-bolder fs-5">Chính sách đổi trả</h2>

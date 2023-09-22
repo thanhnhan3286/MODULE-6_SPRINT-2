@@ -4,23 +4,51 @@ import "../../css/style.css";
 import user from "../../images/user.svg";
 import cart from "../../images/cart.svg";
 import logo from "../../images/pandahome3-2.png";
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import {Link, NavLink, useNavigate} from "react-router-dom";
+import {Field, Form, Formik} from "formik";
+import * as cartService from "../../service/CartService";
+import * as userService from "../../service/UserService";
+import {useDispatch, useSelector} from "react-redux";
+import {getAllCart} from "../../redux/action/cart";
 
 export function Header() {
     const nav = useNavigate();
+    const iconQuantity = useSelector(state => state.cart)
+    const dispatch = useDispatch();
+    const [name, setName] = useState('');
     const role = localStorage.getItem("role");
+    const token = localStorage.getItem("token");
+    const [userName, setUserName] = useState(localStorage.getItem("username"));
+
+
     const handleLogout = () => {
         localStorage.setItem("token", '');
         localStorage.removeItem("token");
         localStorage.setItem("username", '');
         localStorage.setItem("role", '');
-        // setUser(null);
         nav("/login");
+        dispatch(getAllCart());
     }
-    // useEffect(()=> {
-    //     role = localStorage.getItem("role");
-    // })
+
+    //Lấy tên khách hàng
+    const getUserName = async () => {
+        if (role === "ROLE_CUSTOMER") {
+            const res = await userService.getUser();
+            setUserName(res.name);
+        } else {
+            setUserName('');
+        }
+    }
+
+    useEffect(() => {
+        getUserName()
+    }, [localStorage.getItem("role")])
+    useEffect(() => {
+        if (token !== "null") {
+            dispatch(getAllCart());
+        }
+    }, [localStorage.getItem("token")])
     return (
         <>
             {/* Start Header/Navigation */}
@@ -46,52 +74,68 @@ export function Header() {
                     <div className="row">
                         <div className="col-md-1"/>
                         <div className="col-md-10 text-center">
-                            <form action="#" className="row g-4">
-                                <div className="col-auto d-flex">
-                                    <input
-                                        type="text"
-                                        className="form-control"
-                                        placeholder="Tìm kiếm sản phẩm"
-                                        width="200px"
-                                    />
-                                    <button className="btn btn-warning"
-                                            style={{height: "38px", marginTop: "9px", marginLeft: "2%"}}>
-                                        <span className="fa fa-search"/>
-                                    </button>
-                                </div>
-                                {/*<div className="col-auto">*/}
-                                {/*    */}
-                                {/*</div>*/}
-                            </form>
+                            <div className="row g-4">
+                                {/*<Formik*/}
+                                {/*    initialValues={{*/}
+                                {/*        name: name,*/}
+                                {/*    }}*/}
+                                {/*    onSubmit={async (values, {setSubmitting}) => {*/}
+                                {/*        await setName(values.name);*/}
+                                {/*        console.log(values.name);*/}
+                                {/*        nav("/search/?nameSearch=" + values.name)*/}
+                                {/*    }}>*/}
+                                {/*    {({isSubmitting}) => (*/}
+                                {/*        <Form>*/}
+                                {/*            <div className="col-auto d-flex">*/}
+                                {/*                <Field*/}
+                                {/*                    type="text"*/}
+                                {/*                    className="form-control"*/}
+                                {/*                    placeholder="Tìm kiếm sản phẩm"*/}
+                                {/*                    width="200px"*/}
+                                {/*                    name="name"*/}
+                                {/*                />*/}
+                                {/*                <button type="submit" className="btn btn-warning"*/}
+                                {/*                        style={{height: "38px", marginTop: "9px", marginLeft: "2%"}}>*/}
+                                {/*                    <span className="fa fa-search"/>*/}
+                                {/*                </button>*/}
+                                {/*            </div>*/}
+                                {/*        </Form>*/}
+                                {/*    )}*/}
+                                {/*</Formik>*/}
+                            </div>
                         </div>
                         <div className="col-md-1"/>
                     </div>
 
                     <div className="collapse navbar-collapse" id="navbarsFurni">
-                        <ul className="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
+                        <ul className="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0 fw-bold">
                             <li className="nav-item">
-                                <NavLink to="/home" className="nav-link">
+                                <NavLink to="/home" className="nav-link fw-bold">
                                     Trang chủ
                                 </NavLink>
                             </li>
                             <li>
                                 {/*<a className="nav-link">*/}
-                                <NavLink to="/list" className="nav-link">
+                                <NavLink to="/list" className="nav-link fw-bold">
                                     Sản phẩm ▾
                                 </NavLink>
                                 {/*</a>*/}
                                 <ul className="dropdown">
                                     <li>
-                                        <NavLink to={"/list/khach"} className="nav-link bg-black">Nội thất phòng khách</NavLink>
+                                        <NavLink to={"/list/khach"} className="nav-link bg-black">Nội thất phòng
+                                            khách</NavLink>
                                     </li>
                                     <li>
-                                        <NavLink to={"/list/bep"} className="nav-link bg-black">Nội thất phòng bếp</NavLink>
+                                        <NavLink to={"/list/bep"} className="nav-link bg-black">Nội thất phòng
+                                            bếp</NavLink>
                                     </li>
                                     <li>
-                                        <NavLink to={"/list/ngu"} className="nav-link bg-black">Nội thất phòng ngủ</NavLink>
+                                        <NavLink to={"/list/ngu"} className="nav-link bg-black">Nội thất phòng
+                                            ngủ</NavLink>
                                     </li>
                                     <li>
-                                        <NavLink to={"/list/van"} className="nav-link bg-black">Nội thất văn phòng</NavLink>
+                                        <NavLink to={"/list/van"} className="nav-link bg-black">Nội thất văn
+                                            phòng</NavLink>
                                     </li>
                                     <li>
                                         <NavLink to={"/list/nghe"} className="nav-link bg-black">Đồ gỗ mỹ nghệ</NavLink>
@@ -116,16 +160,18 @@ export function Header() {
                             {/*    </ul>*/}
                             {/*</li>*/}
                             <li>
-                                <NavLink to="/policy" className="nav-link" href="#">
+                                <NavLink to="/policy" className="nav-link fw-bold" href="#">
                                     Chính sách ▾
                                 </NavLink>
                                 <ul className="dropdown">
 
                                     <li>
-                                        <NavLink to={"/policy/transport"} className="nav-link bg-black">Vận chuyển</NavLink>
+                                        <NavLink to={"/policy/transport"} className="nav-link bg-black">Vận
+                                            chuyển</NavLink>
                                     </li>
                                     <li>
-                                        <NavLink to={"/policy/warranty-repair"} className="nav-link bg-black">Bảo hành - Sửa
+                                        <NavLink to={"/policy/warranty-repair"} className="nav-link bg-black">Bảo hành -
+                                            Sửa
                                             chữa</NavLink>
                                     </li>
                                     <li>
@@ -143,9 +189,9 @@ export function Header() {
                                 </ul>
                             </li>
                             <li>
-                                <a className="nav-link" href="contact.html">
+                                <NavLink to={"/contact"} className="nav-link fw-bold" >
                                     Liên hệ
-                                </a>
+                                </NavLink>
                             </li>
                         </ul>
                         {/*<ul className="custom-navbar-cta navbar-nav mb-2 mb-md-0">*/}
@@ -174,11 +220,14 @@ export function Header() {
                                         <div>
                                             <p className="fw-bold text-white nav-link"
                                                style={{marginBottom: "0px", fontSize: "15px"}}>
-                                                CUSTOMER&nbsp;
+                                                {userName} ▾&nbsp;
                                             </p>
                                             <ul className="dropdown">
                                                 <li>
-                                                    <a className="nav-link bg-black" href="#">Thông tin cá nhân</a>
+                                                    <NavLink to={"/info"} className="nav-link bg-black" href="#">Thông tin cá nhân</NavLink>
+                                                </li>
+                                                <li>
+                                                    <NavLink to={"/history"} className="nav-link bg-black" href="#">Lịch sử mua hàng</NavLink>
                                                 </li>
                                                 <li>
                                                     <a className="nav-link bg-black" href="#" onClick={() => {
@@ -192,7 +241,7 @@ export function Header() {
                                             </ul>
                                         </div>
                                         :
-                                        <NavLink to={"/login"} className="nav-link">
+                                        <NavLink to={"/login"} className="nav-link fw-bold">
                                             Đăng nhập &nbsp; <img src={user}/>
                                         </NavLink>
                                 }
@@ -202,36 +251,20 @@ export function Header() {
                             <li>
                                 <NavLink className="nav-link" to={"/cart"}>
                                     <img src={cart} alt="#"/>
-                                    <sup className="">&nbsp;0</sup>
+                                    {
+                                        token != null ?
+                                            <sup className="fw-bold text-light"
+                                                 style={{fontSize: "15px"}}>&nbsp;{iconQuantity.length}</sup>
+                                            :
+                                            <sup className="" style={{fontSize: "15px"}}>&nbsp;0</sup>
+                                    }
+
                                 </NavLink>
                             </li>
                         </ul>
                     </div>
                 </div>
             </nav>
-            {/*<nav*/}
-            {/*    className="custom-navbar-2 navbar navbar-expand-md"*/}
-            {/*    arial-label="Furni navigation bar"*/}
-
-            {/*>*/}
-            {/*    <div className="container" style={{justifyContent: "right"}}>*/}
-            {/*        <form action="#" className="row g-3">*/}
-            {/*            <div className="col-auto">*/}
-            {/*                <input*/}
-            {/*                    type="text"*/}
-            {/*                    className="form-control"*/}
-            {/*                    placeholder="Enter your name"*/}
-            {/*                    width="200px"*/}
-            {/*                />*/}
-            {/*            </div>*/}
-            {/*            <div className="col-auto">*/}
-            {/*                <button className="btn">*/}
-            {/*                    <span className="fa fa-search"/>*/}
-            {/*                </button>*/}
-            {/*            </div>*/}
-            {/*        </form>*/}
-            {/*    </div>*/}
-            {/*</nav>*/}
             {/* End Header/Navigation */}
 
 

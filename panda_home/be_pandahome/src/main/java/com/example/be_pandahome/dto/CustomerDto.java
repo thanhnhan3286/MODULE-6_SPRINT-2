@@ -22,7 +22,7 @@ public class CustomerDto {
     @Size(max = 5, min = 2, message = "Chưa chọn giới tính.")
     private String gender;
     @NotBlank(message = "Chưa nhập ngày sinh.")
-    private String birthday;
+    private Date birthday;
     @NotBlank(message = "Chưa nhập mật khẩu")
 //    @Pattern(regexp = "^(?=.*[A-Z])(?=.*[0-9]).{6,20}$", message = "Mật khẩu phải từ 6 ký tự và ít hơn 20 ký tự, có chứa ký ự in hoa và ký tự số")
     private String password;
@@ -30,21 +30,28 @@ public class CustomerDto {
     private String passwordConfirm;
     @NotBlank(message = "Chưa nhập địa chỉ khách hàng.")
     private String address;
-
+    private Long verificationCode;
+    private Integer count;
     public CustomerDto() {
     }
 
-//    public CustomerDto(String name, String phoneNumber, String email, String gender, String birthday, String password, String address) {
-//        this.name = name;
-//        this.phoneNumber = phoneNumber;
-//        this.email = email;
-//        this.gender = gender;
-//        this.birthday = birthday;
-//        this.password = password;
-//        this.address = address;
-//    }
+    public CustomerDto(String email, Long verificationCode, Integer count) {
+        this.email = email;
+        this.verificationCode = verificationCode;
+        this.count = count;
+    }
 
-    public CustomerDto(String name, String phoneNumber, String email, String gender, String birthday, String password, String passwordConfirm, String address) {
+    public CustomerDto(String name, String phoneNumber, String email, String gender, Date birthday, String password, String address) {
+        this.name = name;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.gender = gender;
+        this.birthday = birthday;
+        this.password = password;
+        this.address = address;
+    }
+
+    public CustomerDto(String name, String phoneNumber, String email, String gender, Date birthday, String password, String passwordConfirm, String address) {
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.email = email;
@@ -53,6 +60,22 @@ public class CustomerDto {
         this.password = password;
         this.passwordConfirm = passwordConfirm;
         this.address = address;
+    }
+
+    public Integer getCount() {
+        return count;
+    }
+
+    public void setCount(Integer count) {
+        this.count = count;
+    }
+
+    public Long getVerificationCode() {
+        return verificationCode;
+    }
+
+    public void setVerificationCode(Long verificationCode) {
+        this.verificationCode = verificationCode;
     }
 
     public String getName() {
@@ -87,11 +110,11 @@ public class CustomerDto {
         this.gender = gender;
     }
 
-    public String getBirthday() {
+    public Date getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(String birthday) {
+    public void setBirthday(Date birthday) {
         this.birthday = birthday;
     }
 

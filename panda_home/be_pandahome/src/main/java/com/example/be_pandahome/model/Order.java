@@ -11,26 +11,136 @@ public class Order {
     private Long id;
     @Column(name = "order_code")
     private String orderCode;
+    @Column(name = "consignee_name")
+    private String consigneeName;
+    @Column(name = "phone_number")
+    private String phoneNumber;
     @Column(name = "delivery_address")
-    private String deliveryAress;
+    private String deliveryAddress;
     @Column(name = "total_price")
-    private Long totalPricce;
+    private Long totalPrice;
+    @Column(name = "deposit")
+    private Long deposit;
+    @Column(name = "shipping_cost")
+    private Long shippingCost;
+    @Column(name = "note", columnDefinition = "TEXT")
+    private String note;
     @Column(name = "create_date", columnDefinition = "TIMESTAMP DEFAULT now()")
     private LocalDateTime createDate;
     @ManyToOne
     @JoinColumn(name = "customer_id")
     private Customers customer;
+    @Column(name = "status")
+    private Integer status;
 
     public Order() {
     }
 
-    public Order(Long id, String orderCode, String deliveryAress, Long totalPricce, LocalDateTime createDate, Customers customer) {
+    public Order(String consigneeName, String phoneNumber, String deliveryAddress, Long totalPrice, String note) {
+        this.consigneeName = consigneeName;
+        this.phoneNumber = phoneNumber;
+        this.deliveryAddress = deliveryAddress;
+        this.totalPrice = totalPrice;
+        this.note = note;
+    }
+
+    public Order(Long id, String orderCode, String deliveryAddress, Long totalPrice, LocalDateTime createDate, Customers customer) {
         this.id = id;
         this.orderCode = orderCode;
-        this.deliveryAress = deliveryAress;
-        this.totalPricce = totalPricce;
+        this.deliveryAddress = deliveryAddress;
+        this.totalPrice = totalPrice;
         this.createDate = createDate;
         this.customer = customer;
+    }
+
+    public Order( String orderCode, String consigneeName, String phoneNumber, String deliveryAddress, Long totalPrice, Customers customer, String note, LocalDateTime createDate, Integer status, Long shippingCost) {
+        this.orderCode = orderCode;
+        this.consigneeName = consigneeName;
+        this.phoneNumber = phoneNumber;
+        this.deliveryAddress = deliveryAddress;
+        this.totalPrice = totalPrice;
+        this.customer = customer;
+        this.note = note;
+        this.createDate = createDate;
+        this.status = status;
+        this.shippingCost = shippingCost;
+    }
+
+    public Order(Long id, String orderCode, String consigneeName, String phoneNumber, String deliveryAddress, Long totalPrice, Long deposit, Long shippingCost, String note, LocalDateTime createDate, Customers customer) {
+        this.id = id;
+        this.orderCode = orderCode;
+        this.consigneeName = consigneeName;
+        this.phoneNumber = phoneNumber;
+        this.deliveryAddress = deliveryAddress;
+        this.totalPrice = totalPrice;
+        this.deposit = deposit;
+        this.shippingCost = shippingCost;
+        this.note = note;
+        this.createDate = createDate;
+        this.customer = customer;
+    }
+
+    public Order(Long id, String orderCode, String consigneeName, String phoneNumber, String deliveryAddress, Long totalPrice, Long deposit, Long shippingCost, String note, LocalDateTime createDate, Customers customer, Integer status) {
+        this.id = id;
+        this.orderCode = orderCode;
+        this.consigneeName = consigneeName;
+        this.phoneNumber = phoneNumber;
+        this.deliveryAddress = deliveryAddress;
+        this.totalPrice = totalPrice;
+        this.deposit = deposit;
+        this.shippingCost = shippingCost;
+        this.note = note;
+        this.createDate = createDate;
+        this.customer = customer;
+        this.status = status;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
+
+    public Long getDeposit() {
+        return deposit;
+    }
+
+    public void setDeposit(Long deposit) {
+        this.deposit = deposit;
+    }
+
+    public Long getShippingCost() {
+        return shippingCost;
+    }
+
+    public void setShippingCost(Long shippingCost) {
+        this.shippingCost = shippingCost;
+    }
+
+    public String getConsigneeName() {
+        return consigneeName;
+    }
+
+    public void setConsigneeName(String consigneeName) {
+        this.consigneeName = consigneeName;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public Long getId() {
@@ -49,20 +159,20 @@ public class Order {
         this.orderCode = orderCode;
     }
 
-    public String getDeliveryAress() {
-        return deliveryAress;
+    public String getDeliveryAddress() {
+        return deliveryAddress;
     }
 
-    public void setDeliveryAress(String deliveryAress) {
-        this.deliveryAress = deliveryAress;
+    public void setDeliveryAddress(String deliveryAddress) {
+        this.deliveryAddress = deliveryAddress;
     }
 
-    public Long getTotalPricce() {
-        return totalPricce;
+    public Long getTotalPrice() {
+        return totalPrice;
     }
 
-    public void setTotalPricce(Long totalPricce) {
-        this.totalPricce = totalPricce;
+    public void setTotalPrice(Long totalPrice) {
+        this.totalPrice = totalPrice;
     }
 
     public LocalDateTime getCreateDate() {

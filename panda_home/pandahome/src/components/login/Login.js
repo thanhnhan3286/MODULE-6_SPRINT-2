@@ -4,10 +4,14 @@ import {ErrorMessage, Field, Form, Formik} from "formik";
 import * as yup from "yup";
 import Swal from "sweetalert2";
 import axios from "axios";
-import {ThreeDots} from "react-loader-spinner"
+import {ThreeDots, RotatingLines} from "react-loader-spinner"
+import {useDispatch} from "react-redux";
+import {getAllCart} from "../../redux/action/cart";
+
 
 export function Login() {
     const nav = useNavigate();
+    const dispatch = useDispatch();
     useEffect(() => {
         const token = localStorage.getItem('token');
         if (token) {
@@ -50,7 +54,7 @@ export function Login() {
                                     // .matches(/^\\w+@\\w+(.\\w+)$/, 'Chưa đúng định dạng email (xxx@xxx.xxx) với x không phải là ký tự đặc biệt '),
                                     password: yup.string().trim()
                                         .required('Chưa nhập mật khẩu.')
-                                        // .matches(/^(?=.*[A-Z])(?=.*[0-9]).{6,20}$/, 'Mật khẩu phải từ 6 ký tự và ít hơn 20 ký tự, có chứa ký tự in hoa và ký tự số'),
+                                    // .matches(/^(?=.*[A-Z])(?=.*[0-9]).{6,20}$/, 'Mật khẩu phải từ 6 ký tự và ít hơn 20 ký tự, có chứa ký tự in hoa và ký tự số'),
 
                                 })}
                                 onSubmit={async (values, {setSubmitting, resetForm}) => {
@@ -74,10 +78,14 @@ export function Login() {
                                             localStorage.setItem("token", res.data.token);
                                             localStorage.setItem("username", res.data.username);
                                             localStorage.setItem("role", res.data.role);
+                                            await dispatch(getAllCart());
                                         }
                                         //Đăng nhập thành công, chuyển hướng hoặc thực hiện hành động khác
+                                        await dispatch(getAllCart());
                                         resetForm();
-                                        await nav("/")
+                                        const url = localStorage.getItem("url");
+                                        url == null ? await nav("/") : nav("" + url);
+                                        localStorage.removeItem("url")
                                     } catch (e) {
                                         // console.log(e)
                                         await Swal.fire({
@@ -88,6 +96,7 @@ export function Login() {
                                         })
                                     } finally {
                                         setSubmitting(false);
+                                        await dispatch(getAllCart());
                                     }
                                 }}
                             >
@@ -188,11 +197,11 @@ export function Login() {
                                             <div className="text-center" style={{marginBottom: "10px"}}>
                                                 {
                                                     isSubmitting ?
-                                                        <div style={{marginLeft: "17vw"}}>
-                                                            <div>
-                                                                <ThreeDots/>
-                                                            </div>
+
+                                                        <div>
+                                                            <RotatingLines/>
                                                         </div>
+
                                                         :
                                                         <button type="submit" className="btn fw-bold"
                                                                 style={{

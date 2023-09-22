@@ -6,6 +6,7 @@ import com.example.be_pandahome.model.Users;
 import com.example.be_pandahome.repository.IUserRepository;
 import com.example.be_pandahome.service.ICustomerService;
 import com.example.be_pandahome.service.IUserService;
+import javafx.util.converter.LocalDateTimeStringConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -18,8 +19,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.mail.MessagingException;
 import java.io.UnsupportedEncodingException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Random;
 
 @Service
@@ -67,8 +71,28 @@ public class UserServiceImpl implements IUserService, UserDetailsService {
             return false;
         }
         this.customerService.createCustomer(customerDto, usersNew.getId());
-        this.emailService.sendMail(email, randomCode);
+        this.emailService.sendMailSignup(email, randomCode);
         return true;
+    }
+
+    @Override
+    public boolean checkCode(CustomerDto customerDto) {
+//        LocalDateTime dateTime = LocalDateTime.now();
+        Users usersCheck = userRepository.getByUserNameAndStatus2(customerDto.getEmail());
+        if (usersCheck == null) {
+            return false;
+        }
+        boolean check = Objects.equals(customerDto.getVerificationCode(), usersCheck.getVerificationCode());
+        if (customerDto.getCount() <= 3 && check) {
+            this.userRepository.setCodeToFalse(usersCheck.getId());
+            this.userRepository.setStatusToFalse(usersCheck.getId());
+            this.customerService.setFlagToFalse(usersCheck.getUserName());
+            return true;
+        }else if(customerDto.getCount() >= 3 && !check) {
+            this.userRepository.setCodeToFalse(usersCheck.getId());
+            this.userRepository.setStatusToTrue(usersCheck.getId());
+        }
+        return check;
     }
 
     private Boolean checkExistUser(String email) {

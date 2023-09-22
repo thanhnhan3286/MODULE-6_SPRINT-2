@@ -21,6 +21,26 @@ body {
     background-color: #eff2f1;
 }
 
+::-webkit-scrollbar {
+    width: 0.7rem;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #000000;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #ffc107;
+    border-radius: 5px;
+    border: 3px solid transparent;
+    background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb :hover {
+    background-color: yellow;
+}
+
 a {
     text-decoration: none;
     -webkit-transition: .3s all ease;
@@ -34,6 +54,7 @@ a:hover {
     color: #2f2f2f;
     text-decoration: none;
 }
+
 a#tc:hover {
     color: #ffc107;
     /*text-decoration: underline;*/
@@ -44,6 +65,7 @@ a#tc:hover {
 a.more {
     font-weight: 600;
 }
+
 input[type="checkbox"] {
     display: none;
 }
@@ -95,7 +117,6 @@ ul li {
 }
 
 
-
 ul li ul.dropdown li {
     display: block;
     /*padding-right: 0.5rem;*/
@@ -113,6 +134,7 @@ ul li ul.dropdown {
     text-decoration: none;
     width: 190px;
 }
+
 ul li ul.dropdown1 {
     background: black;
     position: absolute;
@@ -128,18 +150,40 @@ ul li:hover ul.dropdown {
     display: block;
     text-decoration: none;
 }
-.img-cricle{
+
+figure.zoom {
+    background-position: 50% 50%;
+    position: relative;
+    width: 500px;
+    overflow: hidden;
+    cursor: zoom-in;
+}
+
+figure.zoom img:hover {
+    opacity: 0;
+}
+
+figure.zoom img {
+    transition: opacity 0.5s;
+    display: block;
+    width: 100%;
+}
+
+.img-cricle {
     border-radius: 50%; /* Áp dụng hiệu ứng bo tròn */
     overflow: hidden; /* Đảm bảo hình ảnh không tràn ra khỏi phần tử */
 }
-.bglogin{
+
+.bglogin {
     background-image: url("../images/bglogin2.png");
     opacity: 0.8;
 }
-.bgsignup{
+
+.bgsignup {
     background-image: url("../images/spall.jpg");
     opacity: 0.8;
 }
+
 .custom-navbar {
     background: #000000 !important;
     /*padding-top: 20px;*/
@@ -152,6 +196,7 @@ ul li:hover ul.dropdown {
     transition: all 0.5s;
     z-index: 997;
 }
+
 .custom-navbar-2 {
     background: #000000e8 !important;
     /*padding-top: 20px;*/
@@ -223,6 +268,7 @@ ul li:hover ul.dropdown {
 .custom-navbar .custom-navbar-nav li a:hover {
     opacity: 1;
 }
+
 /*.custom-navbar .custom-navbar-nav li NavLink:hover {*/
 /*    opacity: 1;*/
 /*}*/
@@ -230,6 +276,7 @@ ul li:hover ul.dropdown {
 .custom-navbar .custom-navbar-nav li a:hover:before {
     width: calc(100% - 16px);
 }
+
 /*.custom-navbar .custom-navbar-nav li NavLink:hover:before {*/
 /*    width: calc(100% - 16px);*/
 /*}*/
@@ -251,7 +298,8 @@ ul li:hover ul.dropdown {
     /*transition: .15s all ease-out;*/
     text-align: center;
 }
-a.active{
+
+a.active {
     content: "";
     color: #ffa700;
     /*position: absolute;*/
@@ -301,6 +349,7 @@ a.active{
     background: #2b302ec2;
     padding: calc(3rem - 20px) 0 0rem 0;
 }
+
 /*#sp .hero {*/
 /*    background-image: url("https://www.noithatanhbinh.com.vn/Thumb.ashx?s=1492&file=/UploadImages/Furniture/grouptest1.jpg");*/
 /*    padding: calc(3rem - 20px) 0 0rem 0;*/
@@ -523,6 +572,7 @@ a.active{
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
+
 /*.text-danger{*/
 /*    color: red;*/
 /*}*/
@@ -689,14 +739,7 @@ a.active{
     position: relative;
     padding-left: 20px;
 }
-.custom-list#1 li {
-    display: inline-block;
-    width: calc(50% - 20px);
-    margin-bottom: 12px;
-    line-height: 1.5;
-    position: relative;
-    padding-left: 20px;
-}
+
 
 .custom-list li:before {
     content: "";
@@ -708,6 +751,7 @@ a.active{
     left: 0;
     top: 8px;
 }
+
 
 .popular-product {
     padding: 0 0 2rem 0;
@@ -1127,11 +1171,21 @@ a.active{
 textarea {
     height: auto !important;
 }
+
 .border-bottom1 {
     border-bottom: 2px solid #000000;
 }
+
 .border-bottom5 {
     border-bottom: 5px solid #ffa700
+}
+
+.table-wapper {
+    max-height: 450px;
+    overflow-y: scroll;
+}
+.outer-wapper {
+    max-width: 100%;
 }
 
 .site-blocks-table {
@@ -1139,24 +1193,55 @@ textarea {
 }
 
 .site-blocks-table .product-thumbnail {
-    width: 200px;
+    width: 15%;
 }
+
 /*.product-quantity{*/
 /*text-align: left;*/
 /*}*/
-.text-yl{
+.text-yl {
     color: #ffa700;
 }
-.quantity-amount{
+
+.quantity-amount {
     text-align: center;
     margin: 0 auto;
 }
+
 .site-blocks-table .btn {
     padding: 2px 10px;
 }
 
+.site-blocks-table .product-name {
+    width: 20%;
+}
+
+.site-blocks-table .product-price {
+    width: 15%;
+}
+
+.site-blocks-table .product-quantity {
+    width: 15%;
+}
+
+.site-blocks-table .product-total {
+    width: 18%;
+}
+
+.input {
+    width: 35px;
+    height: 30px;
+    color: black;
+    font-weight: 600;
+    outline: none;
+    /*border-left: 1px !important;*/
+    /*border-right: 1px !important;*/
+    border: 1px solid #000000;
+
+}
+
 .site-blocks-table thead th {
-    padding: 30px;
+    padding: 10px 30px;
     text-align: center;
     border-width: 0px !important;
     vertical-align: middle;
@@ -1165,7 +1250,7 @@ textarea {
 }
 
 .site-blocks-table td {
-    padding: 20px;
+    /*padding: 20px;*/
     text-align: center;
     vertical-align: middle;
     color: rgba(0, 0, 0, 0.8);
@@ -1175,7 +1260,7 @@ textarea {
     border-top: 1px solid #3b5d50 !important;
 }
 
-.site-blocks-table .btn {
+.site-blocks-table .btn1 {
     background: none !important;
     color: #000000;
     border: none;

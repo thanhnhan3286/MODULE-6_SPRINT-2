@@ -33,4 +33,16 @@ public interface IUserRepository extends JpaRepository<Users, Long> {
 
     @Query(nativeQuery = true, value = "select * from users as u where u.user_name = :email and status = 2")
     Users getByUserNameAndStatus2(@Param("email") String email);
+    @Modifying
+    @Transactional
+    @Query(nativeQuery = true, value = "update users as u set u.verification_code = null where u.id = :id and u.status = 2")
+    void setCodeToFalse(@Param("id") Long id);
+    @Modifying
+    @Transactional
+    @Query(nativeQuery = true, value = "update users as u set u.status = 0 where u.id = :id")
+    void setStatusToFalse(@Param("id") Long id);
+    @Modifying
+    @Transactional
+    @Query(nativeQuery = true, value = "update users as u set u.status = 1 where u.id = :id and a.status = 2")
+    void setStatusToTrue(@Param("id") Long id);
 }

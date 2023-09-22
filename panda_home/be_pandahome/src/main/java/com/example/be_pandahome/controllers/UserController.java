@@ -3,12 +3,16 @@ package com.example.be_pandahome.controllers;
 import com.example.be_pandahome.config.JwtTokenUtil;
 import com.example.be_pandahome.config.JwtUserDetails;
 import com.example.be_pandahome.dto.CustomerDto;
+import com.example.be_pandahome.model.Customers;
+import com.example.be_pandahome.model.Users;
 import com.example.be_pandahome.reponse.JwtRequest;
 import com.example.be_pandahome.reponse.JwtResponse;
+import com.example.be_pandahome.service.ICustomerService;
 import com.example.be_pandahome.service.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -21,6 +25,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
 import javax.mail.MessagingException;
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
@@ -38,6 +43,7 @@ public class UserController {
     private PasswordEncoder passwordEncoder;
     @Autowired
     private UserServiceImpl userService;
+
 
     static class ErrorInfo {
         private String error;
@@ -80,6 +86,7 @@ public class UserController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Đăng nhập thất bại.");
         }
     }
+
     @PostMapping("/signup")
     public ResponseEntity<?> signUp(@RequestBody CustomerDto customerDto) throws MessagingException, UnsupportedEncodingException {
         if (userService.signUp(customerDto)) {
@@ -87,6 +94,7 @@ public class UserController {
         }
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Đăng ký tài khoản không thành công");
     }
+
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public Map<String, String> handleValidationExceptions(
@@ -98,5 +106,21 @@ public class UserController {
             errors.put(fieldName, errorMessage);
         });
         return errors;
+    }
+
+    @PostMapping("/checkCode")
+    public ResponseEntity<?> checkCode(@RequestBody CustomerDto customerDto) {
+        boolean check = userService.checkCode(customerDto);
+        try {
+            if (check) {
+                return ResponseEntity.ok(new JwtResponse(customerDto.getEmail()));
+            } else {
+                ErrorInfo errorInfo = new ErrorInfo("Xác nhận mã thất bại!!", customerDto.getEmail());
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorInfo);
+            }
+        } catch (Exception e) {
+            ErrorInfo errorInfo = new ErrorInfo("Xác nhận mã thất bại!!", customerDto.getEmail());
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorInfo);
+        }
     }
 }

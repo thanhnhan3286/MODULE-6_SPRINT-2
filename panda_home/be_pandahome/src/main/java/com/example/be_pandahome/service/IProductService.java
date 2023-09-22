@@ -10,7 +10,9 @@ public interface IProductService {
 
     Products findById(Long id);
 
-    Page<Products> getAllProduct(Integer page, String name, String type, String category);
+    Page<Products> getAllProduct(Integer page, String name, String type, String category, String price, String orderBy);
 
     List<Products> getSamePro(Long id);
+
+    void save(Products products);
 }

@@ -22,6 +22,15 @@ public class CustomerServiceImpl implements ICustomerService {
     @Override
     public void createCustomer(CustomerDto customerDto, Long idUser) {
         this.customerRepository.createCustomer(customerDto,idUser);
-        customerRepository.saveAndFlush()
+    }
+
+    @Override
+    public Customers findByUserName(String userName) {
+        return customerRepository.findByUserName(userName);
+    }
+
+    @Override
+    public void setFlagToFalse(String userName) {
+        this.customerRepository.setStatusToFalse(userName);
     }
 }
