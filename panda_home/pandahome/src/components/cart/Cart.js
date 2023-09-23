@@ -34,7 +34,6 @@ export function Cart() {
         const res = await cartService.setQuantity(1, id);
         await dispatch(getAllCart());
         await getAll();
-
         switch (res.data) {
             case "Số lượng sản phẩm trong kho không đủ.":
                 await Swal.fire({

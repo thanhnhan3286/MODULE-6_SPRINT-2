@@ -77,6 +77,7 @@ public class OrderSrviceImpl implements IOrderService {
             this.cartService.delete(shoppingCartList.get(i));
         }
         List<OrderDetail> orderDetailList = orderDetailService.findAllByOrder(order.getId());
+        assert orderNew != null;
         this.emailService.sendMailOrder(customers.getEmail(), orderNew);
         return true;
     }

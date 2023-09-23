@@ -28,35 +28,41 @@ export function ReturnVnpay() {
 
 
     const display = async () => {
-        const order = (JSON.parse(localStorage.getItem("order")))
-        if (responseCode === "00") {
-            Swal.fire({
-                icon: "warning",
-                timer: 2000,
-                title: "Đang kiểm tra thanh toán",
-            }).then(async () => {
-                await orderService.createOrderAndOrderDetail(order);
-                await dispatch(getAllCart());
-                localStorage.removeItem("order")
-                await Swal.fire({
-                    icon: "success",
-                    timer: 3000,
-                    title: "Thanh toán thành công",
+        const order = (JSON.parse(localStorage.getItem("order")));
+        if (order != null) {
+            if (responseCode === "00") {
+                Swal.fire({
+                    icon: "warning",
+                    timer: 2000,
+                    title: "Đang kiểm tra thanh toán",
+                }).then(async () => {
+                    await orderService.createOrderAndOrderDetail(order);
+                    await dispatch(getAllCart());
+                    localStorage.removeItem("order")
+                    await Swal.fire({
+                        icon: "success",
+                        timer: 3000,
+                        title: "Thanh toán thành công",
+                        showConfirmButton: false
+                    });
+                    navigate("/history")
+                })
+            } else {
+                Swal.fire({
+                    icon: "error",
+                    timer: 5000,
+                    title: "Thanh toán thất bại",
                     showConfirmButton: false
-                });
-                navigate("/history")
-            })
+                }).then(() => {
+                    localStorage.removeItem("order")
+                    navigate("/")
+                })
+            }
         } else {
-            Swal.fire({
-                icon: "error",
-                timer: 5000,
-                title: "Thanh toán thất bại",
-                showConfirmButton: false
-            }).then(() => {
-                localStorage.removeItem("order")
-                navigate("/")
-            })
+            navigate("/error")
+
         }
+
     }
 
     useEffect(() => {

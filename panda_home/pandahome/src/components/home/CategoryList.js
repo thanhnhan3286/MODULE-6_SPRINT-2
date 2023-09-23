@@ -169,17 +169,14 @@ export function CategoryList() {
     //     sortByPrice(listPrduct).then(r => null);
     // }, [sort])
     useEffect(() => {
-        try {
-            setName(() => '');
-            setPrice(() => '');
-            setSort(() => '');
-        } catch (e) {
-            console.log(e)
-        } finally {
-            window.scrollTo(0, 0);
-            setCategory(param.data);
-            getAllProduct(param.data, '', '', '').then(r => null);
-        }
+
+        setName(() => '');
+        setPrice(() => '');
+        setSort(() => '');
+
+        window.scrollTo(0, 0);
+        setCategory(param.data);
+        getAllProduct(param.data, '', '', '').then(r => null);
     }, [param.data]);
     // window.location.reload();
     useEffect(() => {

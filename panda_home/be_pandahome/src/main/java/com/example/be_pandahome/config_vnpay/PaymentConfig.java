@@ -15,13 +15,11 @@ public class PaymentConfig {
     public static String vnp_TmnCode = "A7WPIWF4";
     public static String vnp_HashSecret = "DLRNAPDTNUUULYGZMJLFQXDKJCOVDMLS";
     public static String vnp_apiUrl = "https://sandbox.vnpayment.vn/merchant_webapi/api/transaction";
-
     public static String vnp_Version = "2.1.0";
     public static String vnp_Command = "pay";
 
     public static String hmacSHA512(final String key, final String data) {
         try {
-
             if (key == null || data == null) {
                 throw new NullPointerException();
             }
@@ -36,7 +34,6 @@ public class PaymentConfig {
                 sb.append(String.format("%02x", b & 0xff));
             }
             return sb.toString();
-
         } catch (Exception ex) {
             return "";
         }
