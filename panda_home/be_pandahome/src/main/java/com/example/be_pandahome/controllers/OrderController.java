@@ -31,7 +31,7 @@ public class OrderController {
     @Autowired
     private IOrderDetailService orderDetailService;
     @GetMapping()
-    @PreAuthorize("hasAnyRole('ROLE_CUSTOMER','ROLE_ADMIN')")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity<List<Order>> getAllByCustomer(HttpServletRequest httpServletRequest){
         String header = httpServletRequest.getHeader("Authorization");
         String token = header.substring(7);

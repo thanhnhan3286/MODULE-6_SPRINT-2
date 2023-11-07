@@ -18,6 +18,7 @@ export function Login() {
             nav("/")
         }
     });
+
     const [userName, setUserName] = useState(localStorage.getItem("user_name"));
     const [password, setPassword] = useState(localStorage.getItem("password"));
     const setPwUs = async (u, p) => {

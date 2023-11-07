@@ -84,8 +84,8 @@ public class EmailService {
                 "            <h3 style=\"color: #333333;font-size: 18px;margin-top: 30px;\"> - Người nhận hàng: "+orderNew.getConsigneeName()+"</h3>\n" +
                 "            <h3 style=\"color: #333333;font-size: 18px;margin-top: 30px;\"> - Số điện thoại nhận hàng: "+orderNew.getPhoneNumber()+"</h3>\n" +
                 "            <h3 style=\"color: #333333;font-size: 18px;margin-top: 30px;\"> - Địa chỉ nhận hàng: "+orderNew.getDeliveryAddress()+"</h3>\n" +
-                "            <h3 style=\"color: #333333;font-size: 18px;margin-top: 30px;\"> - Tổng tiền hàng: "+orderNew.getTotalPrice()+"</h3>\n" +
-                "            <h3 style=\"color: #333333;font-size: 18px;margin-top: 30px;\"> - Phí vận chuyển: "+orderNew.getShippingCost()+"</h3>\n" +
+                "            <h3 style=\"color: #333333;font-size: 18px;margin-top: 30px;\"> - Tổng tiền hàng: "+orderNew.getTotalPrice()+ " đ " +"</h3>\n" +
+                "            <h3 style=\"color: #333333;font-size: 18px;margin-top: 30px;\"> - Phí vận chuyển: "+orderNew.getShippingCost()+ " đ " +"</h3>\n" +
                 "        </div>\n" +
                 "\n" +
                 "\n" +
